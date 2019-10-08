@@ -133,13 +133,8 @@ public class RdzReader {
    }
 
    private static void copyStreamToFile(InputStream is, File file) throws IOException {
-      FileOutputStream os = null;
-      try {
-         os = new FileOutputStream(file);
+      try (FileOutputStream os = new FileOutputStream(file)) {
          IOUtils.copy(is, os);
-      }
-      finally {
-         IOUtils.closeQuietly(os);
       }
    }
 

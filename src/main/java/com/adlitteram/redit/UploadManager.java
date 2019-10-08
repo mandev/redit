@@ -26,7 +26,6 @@ import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.protocol.HttpContext;
 import org.slf4j.Logger;
@@ -70,29 +69,16 @@ public class UploadManager {
       if (httpClient == null) {
          httpClient = new DefaultHttpClient();
          httpClient.getParams().setParameter("http.protocol.version", HttpVersion.HTTP_1_1);
-         HttpConnectionParams.setConnectionTimeout(httpClient.getParams(), 3 * 1000);
-         HttpConnectionParams.setSoTimeout(httpClient.getParams(), 60 * 1000);
-//            HttpProtocolParams.setUserAgent(httpClient.getParams(), "Mozilla/5.0 (compatible; MSIE 7.0; Windows 2000)");
-//            HttpProtocolParams.setContentCharset(httpClient.getParams(), "utf-8");
-//            httpClient.getParams().setParameter("http.protocol.version", HttpVersion.HTTP_1_1);
-//            httpClient.getParams().setParameter("http.connection.timeout", new Integer(5 * 1000));
-//            httpClient.getParams().setParameter("http.socket.timeout", new Integer(60 * 1000));
+         httpClient.getParams().setParameter("http.connection.timeout", 3 * 1000);
+         httpClient.getParams().setParameter("http.socket.timeout", 60 * 1000);
 
          httpClient.addRequestInterceptor((final HttpRequest request, final HttpContext context) -> {
             if (!request.containsHeader("Accept-Encoding")) {
                request.addHeader("Accept-Encoding", "gzip");
             }
-//                    for (Header h : request.getAllHeaders()) {
-//                        System.err.println(h.getName() + ": " + h.getValue());
-//                    }
          });
 
          httpClient.addResponseInterceptor((final HttpResponse response, final HttpContext context) -> {
-            //                    System.err.println("*******************");
-//                    for (Header h : response.getAllHeaders()) {
-//                        System.err.println(h.getName() + ": " + h.getValue());
-//                    }
-
             HttpEntity entity = response.getEntity();
             Header ceheader = entity.getContentEncoding();
             if (ceheader != null) {
@@ -359,13 +345,9 @@ public class UploadManager {
       }
 
       @Override
-      public InputStream getContent()
-              throws IOException, IllegalStateException {
-
+      public InputStream getContent() throws IOException, IllegalStateException {
          // the wrapped entity's getContent() decides about repeatability
-         InputStream wrappedin = wrappedEntity.getContent();
-
-         return new GZIPInputStream(wrappedin);
+         return new GZIPInputStream(wrappedEntity.getContent());
       }
 
       @Override

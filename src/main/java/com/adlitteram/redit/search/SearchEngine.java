@@ -85,7 +85,7 @@ public class SearchEngine {
       if (regex == false) {
          int pos = getNextMatchPos(text, findIn, forward,
                  matchCase, wholeWord);
-         findIn = null; // May help garbage collecting.
+
          if (pos != -1) {
             // Without this, if JTextComponent  isn't in focus, selection
             // won't appear selected.
@@ -102,7 +102,7 @@ public class SearchEngine {
          // match in findIn.
          Point regExPos = getNextMatchPosRegEx(text, findIn,
                  forward, matchCase, wholeWord);
-         findIn = null; // May help garbage collecting.
+
          if (regExPos != null) {
             // Without this, if JTextComponent  isn't in focus, selection
             // won't appear selected.
@@ -463,63 +463,62 @@ public class SearchEngine {
 
          char nextChar = template.charAt(cursor);
 
-         if (nextChar == '\\') { // Escape character.
-            nextChar = template.charAt(++cursor);
-            switch (nextChar) { // Special cases.
-               case 'n':
-                  nextChar = '\n';
-                  break;
-               case 't':
-                  nextChar = '\t';
-                  break;
-            }
-            result.append(nextChar);
-            cursor++;
-         }
-         else if (nextChar == '$') { // Group reference.
-
-            cursor++; // Skip the '$'.
-
-            // The first number is always a group
-            int refNum = template.charAt(cursor) - '0';
-            if ((refNum < 0) || (refNum > 9)) {
-               // This should really be an IllegalArgumentException,
-               // but we cheat to keep all "group" errors throwing
-               // the same exception type.
-               throw new IndexOutOfBoundsException(
-                       "No group " + template.charAt(cursor));
-            }
-            cursor++;
-
-            // Capture the largest legal group string
-            boolean done = false;
-            while (!done) {
-               if (cursor >= template.length()) {
-                  break;
+         switch (nextChar) {
+            case '\\':
+               // Escape character.
+               nextChar = template.charAt(++cursor);
+               switch (nextChar) { // Special cases.
+                  case 'n':
+                     nextChar = '\n';
+                     break;
+                  case 't':
+                     nextChar = '\t';
+                     break;
                }
-               int nextDigit = template.charAt(cursor) - '0';
-               if ((nextDigit < 0) || (nextDigit > 9)) { // not a number
-                  break;
-               }
-               int newRefNum = (refNum * 10) + nextDigit;
-               if (m.groupCount() < newRefNum) {
-                  done = true;
-               }
-               else {
-                  refNum = newRefNum;
-                  cursor++;
-               }
-            }
+               result.append(nextChar);
+               cursor++;
+               break;
+            case '$':
+               // Group reference.
 
-            // Append group
-            if (m.group(refNum) != null) {
-               result.append(m.group(refNum));
-            }
-
-         }
-         else {
-            result.append(nextChar);
-            cursor++;
+               cursor++; // Skip the '$'.
+               // The first number is always a group
+               int refNum = template.charAt(cursor) - '0';
+               if ((refNum < 0) || (refNum > 9)) {
+                  // This should really be an IllegalArgumentException,
+                  // but we cheat to keep all "group" errors throwing
+                  // the same exception type.
+                  throw new IndexOutOfBoundsException(
+                          "No group " + template.charAt(cursor));
+               }
+               cursor++;
+               // Capture the largest legal group string
+               boolean done = false;
+               while (!done) {
+                  if (cursor >= template.length()) {
+                     break;
+                  }
+                  int nextDigit = template.charAt(cursor) - '0';
+                  if ((nextDigit < 0) || (nextDigit > 9)) { // not a number
+                     break;
+                  }
+                  int newRefNum = (refNum * 10) + nextDigit;
+                  if (m.groupCount() < newRefNum) {
+                     done = true;
+                  }
+                  else {
+                     refNum = newRefNum;
+                     cursor++;
+                  }
+               }  // Append group
+               if (m.group(refNum) != null) {
+                  result.append(m.group(refNum));
+               }
+               break;
+            default:
+               result.append(nextChar);
+               cursor++;
+               break;
          }
 
       }
@@ -607,8 +606,6 @@ public class SearchEngine {
       RegExReplaceInfo info = getRegExReplaceInfo(toFind, findIn,
               forward, matchCase,
               wholeWord, replaceWith);
-
-      findIn = null; // May help garbage collecting.
 
       // If a match was found, do the replace and return!
       if (info != null) {
@@ -718,26 +715,21 @@ public class SearchEngine {
          int lastEnd = 0;
          Pattern p = Pattern.compile(toFind);
          Matcher m = p.matcher(findIn);
-         try {
-            // NOTE: Instead of using m.replaceAll() (and thus
-            // m.appendReplacement() and m.appendTail()), we
-            // do this ourselves since we have our own method
-            // of getting the "replacement text" which converts
-            // "\n" to newlines and "\t" to tabs.
-            while (m.find()) {
-               //m.appendReplacement(sb, replaceWith);
-               sb.append(findIn.substring(lastEnd, m.start()));
-               sb.append(getReplacementText(m, replaceWith));
-               lastEnd = m.end();
-               count++;
-            }
-            //m.appendTail(sb);
-            sb.append(findIn.substring(lastEnd));
-            textComponent.setText(sb.toString());
+         // NOTE: Instead of using m.replaceAll() (and thus
+         // m.appendReplacement() and m.appendTail()), we
+         // do this ourselves since we have our own method
+         // of getting the "replacement text" which converts
+         // "\n" to newlines and "\t" to tabs.
+         while (m.find()) {
+            //m.appendReplacement(sb, replaceWith);
+            sb.append(findIn.substring(lastEnd, m.start()));
+            sb.append(getReplacementText(m, replaceWith));
+            lastEnd = m.end();
+            count++;
          }
-         finally {
-            findIn = null; // May help GC.
-         }
+         //m.appendTail(sb);
+         sb.append(findIn.substring(lastEnd));
+         textComponent.setText(sb.toString());
       }
       else { // Non-regular expression search.
          textComponent.setCaretPosition(0);

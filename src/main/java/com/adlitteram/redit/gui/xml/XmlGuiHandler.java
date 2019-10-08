@@ -124,7 +124,6 @@ public class XmlGuiHandler extends DefaultHandler {
       else if (raw.equalsIgnoreCase("separator")) {
          JComponent cp = (JComponent) stateStack.peek();
 
-         // if ( cp instanceof JToolBar) cp.add(javax.swing.Box.createRigidArea(new Dimension(10,10))) ;
          if (cp instanceof JToolBar) {
             cp.add(javax.swing.Box.createHorizontalStrut(10));
          }
@@ -136,17 +135,6 @@ public class XmlGuiHandler extends DefaultHandler {
          String comboName = attrs.getValue("action").toLowerCase();
          JComboBox item = null;
 
-//         if (comboName.equals("fontfamily")) item = new FontFamilyCombo("FontFamily") ;
-//         else if (comboName.equals("fontsize")) item = new FontSizeCombo("FontSize") ;
-//         else if (comboName.equals("fontcolor")) item = new ColorCombo("FontColor") ;
-//         else if (comboName.equals("setstyle")) item = new RefStyleCombo("SetStyle") ;
-//         else if (comboName.equals("setbackgroundcolor")) item = new ColorCombo("SetBackgroundColor") ;
-//         else if (comboName.equals("setbordercolor")) item = new ColorCombo("SetBorderColor") ;
-//         else if (comboName.equals("setborderwidth")) item = new LineWidthCombo("SetBorderWidth") ;
-//         else if (comboName.equals("setborderposition")) item = new BorderPositionCombo("SetBorderPosition") ;
-//         else if (comboName.equals("setverticaljustif")) item = new VerticalJustifCombo("SetVerticalJustif") ;
-//         else if (comboName.equals("zoom")) item = new ZoomCombo() ;
-//         else if (comboName.equals("layout")) item = new LayoutCombo() ;
          if (item == null) {
             return;
          }
@@ -157,18 +145,6 @@ public class XmlGuiHandler extends DefaultHandler {
          String action = attrs.getValue("action").toLowerCase();
          JMenu item = null;
 
-//         if (action.equals("fontfamily")) item = new FontFamilyMenu("FontFamily") ;
-//         else if (action.equals("fontsize")) item = new FontSizeMenu("FontSize") ;
-//         else if (action.equals("setstyle")) item = new RefStyleMenu("SetStyle") ;
-//         else if (action.equals("setbackgroundcolor")) item = new ColorMenu("SetBackgroundColor") ;
-//         else if (action.equals("fontcolor")) item = new ColorMenu("FontColor") ;
-//         else if (action.equals("setbordercolor")) item = new ColorMenu("SetBorderColor") ;
-//         else if (action.equals("setborderwidth")) item = new LineWidthMenu("SetBorderWidth") ;
-//         else if (action.equals("setborderposition")) item = new BorderPositionMenu("SetBorderPosition") ;
-//         else if (action.equals("setverticaljustif")) item = new VerticalJustifMenu("SetVerticalJustif") ;
-//         else if (action.equals("zoom")) item = new ZoomMenu() ;
-//         else if (action.equals("layout")) item = new LayoutMenu() ;
-         // Comme il s'agit de menu les items sont registeres individuellement
          if (item == null) {
             return;
          }

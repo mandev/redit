@@ -8,14 +8,13 @@ import com.adlitteram.redit.Article;
 import com.adlitteram.redit.RDocument;
 import java.io.*;
 import javax.swing.text.BadLocationException;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ArticleWriter {
 
    private static final Logger logger = LoggerFactory.getLogger(ArticleWriter.class);
-   //
+   
    protected Article article;
    protected String encoding = "UTF-8";
 
@@ -43,21 +42,6 @@ public class ArticleWriter {
       catch (BadLocationException ex) {
          logger.warn("", ex);
          throw new IOException(ex.getMessage());
-      }
-   }
-
-//    protected void writePicture(OutputStream out, Picture picture) throws IOException {
-//        copyFileToStream(picture.getFile(), out);
-//    }
-//
-   protected static void copyFileToStream(File file, OutputStream os) throws IOException {
-      InputStream is = null;
-      try {
-         is = new FileInputStream(file);
-         IOUtils.copy(is, os);
-      }
-      finally {
-         IOUtils.closeQuietly(is);
       }
    }
 

@@ -10,7 +10,6 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 import org.slf4j.Logger;
@@ -46,27 +45,21 @@ public class EidosZipArticleWriter extends EidosArticleWriter {
       Date date = new Date(System.currentTimeMillis() + 1000 * 3600 * 22); // +22h
       dateOnly = DF2.format(date);
       dateTime = DF3.format(date);
-
    }
 
    @Override
    public void write(String fileName) throws IOException {
 
-      ZipOutputStream zout = null;
-      try {
-         XMLOutputter xmlWriter = getXmlWriter();
-         zout = new ZipOutputStream(new FileOutputStream(fileName));
-         writeDocument(zout, xmlWriter);
+      try (FileOutputStream fos = new FileOutputStream(fileName);
+              ZipOutputStream zout = new ZipOutputStream(fos)) {
 
+         XMLOutputter xmlWriter = getXmlWriter();
+         writeDocument(zout, xmlWriter);
          if (sendPicture && user.getGroup().isAccessPictureAssociation() && article.getExplorerModel().size() > 0) {
             writePictures(zout, xmlWriter);
          }
-
          writeStructure(zout, xmlWriter);
          zout.flush();
-      }
-      finally {
-         IOUtils.closeQuietly(zout);
       }
    }
 
@@ -125,9 +118,8 @@ public class EidosZipArticleWriter extends EidosArticleWriter {
 
    protected void writePicture(ZipOutputStream zout, ImageFile picture, File iptcFile) throws IOException {
 
-      // Check for iptc tags
       if (iptcFile == null) {
-         copyFileToStream(picture.getFile(), zout);
+         FileUtils.copyFile(picture.getFile(), zout);
       }
       else {
          File pictureFile = null;
@@ -136,10 +128,7 @@ public class EidosZipArticleWriter extends EidosArticleWriter {
             FileUtils.copyFile(picture.getFile(), pictureFile);
             pictureFile.deleteOnExit();
             IptcManager.setIptcFile(iptcFile, pictureFile);
-            copyFileToStream(pictureFile, zout);
-//            }
-//            catch (InterruptedException ex) {
-//                throw new IOException(ex);
+            FileUtils.copyFile(pictureFile, zout);
          }
          finally {
             if (pictureFile != null && pictureFile.exists()) {
@@ -187,8 +176,6 @@ public class EidosZipArticleWriter extends EidosArticleWriter {
       writeTag(xmlWriter, "Country", meta.getCountry());
       writeTag(xmlWriter, "City", meta.getCity());
       writeTag(xmlWriter, "Address", meta.getAddress());
-//        writeTag(xmlWriter, "Province", null);
-//        writeTag(xmlWriter, "Typologies", null);
 
       writeTag(xmlWriter, "Status", ArticleMetadata.WEB_STATUS[meta.getWebStatus()]);
       writeTag(xmlWriter, "TopicsList", meta.getWebTopic());

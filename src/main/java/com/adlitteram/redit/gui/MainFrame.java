@@ -25,7 +25,7 @@ import javax.swing.WindowConstants;
 public final class MainFrame extends JFrame {
 
    public static final ArrayList<Image> ICONS = loadIconImages();
-   //
+
    private final AppManager appManager;
    private final WidgetManager widgetManager;
    private final GuiBuilder guiBuilder;
@@ -144,15 +144,12 @@ public final class MainFrame extends JFrame {
 
    private static ArrayList<Image> loadIconImages() {
       ArrayList<Image> iconList = new ArrayList<>();
-      iconList.add(GuiUtils.loadImage("resource/icon/" + Version.getNAME().toLowerCase() + "_16.png"));
-      iconList.add(GuiUtils.loadImage("resource/icon/" + Version.getNAME().toLowerCase() + "_24.png"));
-      iconList.add(GuiUtils.loadImage("resource/icon/" + Version.getNAME().toLowerCase() + "_32.png"));
-      iconList.add(GuiUtils.loadImage("resource/icon/" + Version.getNAME().toLowerCase() + "_48.png"));
-      iconList.add(GuiUtils.loadImage("resource/icon/" + Version.getNAME().toLowerCase() + "_64.png"));
-      iconList.add(GuiUtils.loadImage("resource/icon/" + Version.getNAME().toLowerCase() + "_128.png"));
+      iconList.add(GuiUtils.loadImage("resource/icon/" + Version.getCNAME() + "_16.png"));
+      iconList.add(GuiUtils.loadImage("resource/icon/" + Version.getCNAME() + "_24.png"));
+      iconList.add(GuiUtils.loadImage("resource/icon/" + Version.getCNAME() + "_32.png"));
+      iconList.add(GuiUtils.loadImage("resource/icon/" + Version.getCNAME() + "_48.png"));
+      iconList.add(GuiUtils.loadImage("resource/icon/" + Version.getCNAME() + "_64.png"));
+      iconList.add(GuiUtils.loadImage("resource/icon/" + Version.getCNAME() + "_128.png"));
       return iconList;
    }
-   // Update UI of linked components
-//    public void updateComponentUI() {
-//    }
 }

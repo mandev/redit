@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.znerd.xmlenc.XMLOutputter;
@@ -26,19 +25,15 @@ public class RdzArticleWriter extends ArticleWriter {
 
    @Override
    public void write(String fileName) throws IOException {
-      ZipOutputStream zout = null;
-      File tmpFile = null;
-      try {
+      File tmpFile = File.createTempFile("redit_", ".rdz");
+
+      try (FileOutputStream fos = new FileOutputStream(tmpFile);
+              ZipOutputStream zout = new ZipOutputStream(fos)) {
+
          XMLOutputter xmlWriter = getXmlWriter();
-         tmpFile = File.createTempFile("redit_", ".rdz");
-         zout = new ZipOutputStream(new FileOutputStream(tmpFile));
-
          writeHeader(xmlWriter);
-
          writeDocument(zout, xmlWriter);
-
          writePictures(zout, xmlWriter);
-
          writeStructure(zout, xmlWriter);
 
          zout.flush();
@@ -50,12 +45,10 @@ public class RdzArticleWriter extends ArticleWriter {
          }
          FileUtils.moveFile(tmpFile, file);
       }
-      catch (IOException ex) {
-         IOUtils.closeQuietly(zout);
+      finally {
          if (tmpFile != null && tmpFile.exists()) {
             tmpFile.delete();
          }
-         throw ex;
       }
    }
 
@@ -134,7 +127,7 @@ public class RdzArticleWriter extends ArticleWriter {
             ImageFile picture = article.getExplorerModel().getImageFile(i);
             ZipEntry entry = new ZipEntry("picture_" + (++counter) + "." + getPictureFormat(picture.getFormat()));
             zout.putNextEntry(entry);
-            copyFileToStream(picture.getFile(), zout);
+            FileUtils.copyFile(picture.getFile(), zout);
             writePictureTag(xmlWriter, picture, entry.getName());
          }
       }
