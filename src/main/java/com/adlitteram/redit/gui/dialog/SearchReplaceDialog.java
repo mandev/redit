@@ -1,0 +1,127 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.adlitteram.redit.gui.dialog;
+
+import com.adlitteram.jasmin.Message;
+import com.adlitteram.jasmin.XProp;
+import com.adlitteram.redit.AppManager;
+import com.adlitteram.redit.Article;
+import cz.autel.dmi.HIGConstraints;
+import cz.autel.dmi.HIGLayout;
+import java.awt.event.ActionEvent;
+import javax.swing.*;
+import javax.swing.border.CompoundBorder;
+
+public class SearchReplaceDialog extends AbstractSearchDialog {
+
+   public SearchReplaceDialog(AppManager appManager) {
+      super(appManager, Message.get("SearchReplaceDialog.Title"));
+   }
+
+   @Override
+   protected JPanel buildButtonPanel() {
+      JButton replaceAllButton = new JButton(Message.get("SearchReplaceDialog.ReplaceAll"));
+      replaceAllButton.addActionListener((ActionEvent e) -> {
+         replaceAllPressed();
+      });
+
+      JButton replaceButton = new JButton(Message.get("SearchReplaceDialog.Replace"));
+      getRootPane().setDefaultButton(replaceButton);
+      replaceButton.addActionListener((ActionEvent e) -> {
+         replacePressed();
+      });
+
+      JButton searchButton = new JButton(Message.get("SearchReplaceDialog.FindNext"));
+      getRootPane().setDefaultButton(searchButton);
+      searchButton.addActionListener((ActionEvent e) -> {
+         findPressed();
+      });
+
+      JButton cancelButton = new JButton(Message.get("Close"));
+      cancelButton.addActionListener((ActionEvent e) -> {
+         cancelPressed();
+      });
+
+      int w[] = {5, 0, 25, 0, 0, 5, -9, 5, -11, 5, -7, 6};
+      int h[] = {5, 0, 10};
+      HIGLayout l = new HIGLayout(w, h);
+      HIGConstraints c = new HIGConstraints();
+      l.setColumnWeight(4, 1);
+
+      JPanel panel = new JPanel(l);
+      panel.add(replaceAllButton, c.xy(5, 2));
+      panel.add(replaceButton, c.xy(7, 2));
+      panel.add(searchButton, c.xy(9, 2));
+      panel.add(cancelButton, c.xy(11, 2));
+      return panel;
+   }
+
+   @Override
+   protected JPanel buildGeneralPanel() {
+
+      Article article = appManager.getArticle();
+      String str = (article == null || article.getArticlePane() == null) ? "" : article.getArticlePane().getTextPane().getSelectedText();
+      searchField = new JTextField(str, 30);
+      replaceField = new JTextField(30);
+
+      int w0[] = {5, 0, 5, 0, 5};
+      int h0[] = {5, 0, 5, 0, 5};
+      HIGLayout l0 = new HIGLayout(w0, h0);
+      HIGConstraints c0 = new HIGConstraints();
+      l0.setColumnWeight(4, 1);
+
+      JPanel p0 = new JPanel(l0);
+      p0.add(new JLabel(Message.get("SearchReplaceDialog.SearchPattern")), c0.xy(2, 2, "r"));
+      p0.add(searchField, c0.xy(4, 2));
+      p0.add(new JLabel(Message.get("SearchReplaceDialog.ReplacePattern")), c0.xy(2, 4, "r"));
+      p0.add(replaceField, c0.xy(4, 4));
+
+      matchCaseCheck = new JCheckBox(Message.get("SearchReplaceDialog.MatchCase"));
+      matchCaseCheck.setSelected(XProp.getBoolean("Search.MatchCase", false));
+
+      wholeWordCheck = new JCheckBox(Message.get("SearchReplaceDialog.WholeWord"));
+      wholeWordCheck.setSelected(XProp.getBoolean("Search.WholeWord", false));
+
+      regexpCheck = new JCheckBox(Message.get("SearchReplaceDialog.Regexp"));
+      regexpCheck.setSelected(XProp.getBoolean("Search.Regexp", false));
+
+      backwardCheck = new JCheckBox(Message.get("SearchReplaceDialog.Backward"));
+      backwardCheck.setSelected(!XProp.getBoolean("Search.Forward", true));
+
+      int w1[] = {5, 0, 5, 0, 5};
+      int h1[] = {0, 0, 0, 0, 5};
+      HIGLayout l1 = new HIGLayout(w1, h1);
+      HIGConstraints c1 = new HIGConstraints();
+
+      JPanel p1 = new JPanel(l1);
+      p1.add(matchCaseCheck, c1.xy(2, 2, "l"));
+      p1.add(regexpCheck, c1.xy(4, 2, "l"));
+      p1.add(wholeWordCheck, c1.xy(2, 4, "l"));
+      p1.add(backwardCheck, c1.xy(4, 4, "l"));
+
+      int w[] = {5, 0, 5};
+      int h[] = {5, 0, 0, 0, 5};
+      HIGLayout l = new HIGLayout(w, h);
+      HIGConstraints c = new HIGConstraints();
+      l.setColumnWeight(2, 1);
+
+      JPanel panel = new JPanel(l);
+      panel.setBorder(new CompoundBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5), BorderFactory.createEtchedBorder()));
+      panel.add(p0, c.xy(2, 2, "lr"));
+      panel.add(p1, c.xy(2, 4, "r"));
+      return panel;
+   }
+
+   @Override
+   protected void cancelPressed() {
+      XProp.put("Search.SearchPattern", searchField.getText());
+      XProp.put("Search.ReplacePattern", replaceField.getText());
+      XProp.put("Search.MatchCase", matchCaseCheck.isSelected());
+      XProp.put("Search.Forward", !backwardCheck.isSelected());
+      XProp.put("Search.WholeWord", wholeWordCheck.isSelected());
+      XProp.put("Search.Regexp", regexpCheck.isSelected());
+      super.cancelPressed();
+   }
+}

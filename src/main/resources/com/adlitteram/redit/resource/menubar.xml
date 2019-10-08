@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<menubar>
+   <menu name="File">
+      <item action="NewArticle" />
+      <separator />
+      <item action="OpenArticle" />
+      <item action="RestoreArticle" />
+      <separator />
+      <item action="SaveArticle" />
+      <item action="SaveAsArticle" />
+      <separator />
+      <item action="ArticleProperties" />
+      <item action="UploadArticle" />
+      <separator />
+      <item action="Print" />
+      <separator />
+      <listitem action="RecentFiles" />
+      <separator />
+      <item action="Quit" />
+   </menu>
+
+   <menu name="Edit">
+      <item action="Undo" />
+      <item action="Redo" />
+      <separator />
+      <item action="Cut" />
+      <item action="Copy" />
+      <item action="Paste" />
+      <separator />
+      <item action="SearchNext" />
+      <item action="Search" />
+      <item action="SearchAndReplace" />
+      <item action="AddBoloBolo" />
+   </menu>
+
+   <menu name="Style">
+      <item action="SetStyleHeading" />
+      <item action="SetStyleTitle" />
+      <item action="SetStyleSubtitle" />
+      <item action="SetStyleChapo" />
+      <separator />
+      <item action="SetStyleBody" />
+      <item action="SetStyleSubheading" />
+      <item action="SetStyleThrow" />
+      <item action="SetStyleSignature" />
+      <separator />
+      <item action="SetStyleCaption" />
+   </menu>
+
+   <menu name="Format">
+      <!-- item action="SetStyleResult" / -->
+      <!-- item action="SetStyleNote" / -->
+      <item action="SetTextRegular" />
+      <item action="SetTextBold" />
+      <item action="SetTextItalic" />
+   </menu>
+
+   <menu name="Picture">
+      <item action="AddPicture" />
+      <item action="ShowPicture" />
+      <item action="EditPictureMeta" />
+      <item action="EditPicture" />
+      <separator />
+      <item action="DeletePicture" />
+   </menu>
+
+   <menu name="Display">
+      <checkitem action="ShowToolBar" />
+      <checkitem action="ShowPicturePane" />
+      <checkitem action="ShowStatusBar" />
+      <separator />
+      <item action="IncreaseFontSize" />
+      <item action="DecreaseFontSize" />
+   </menu>
+
+   <menu name="?">
+      <item action="About" />
+   </menu>
+</menubar>

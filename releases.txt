@@ -1,0 +1,82 @@
+-----------------------------------------
+rEdit Releases Notes  - Emmanuel Deviller
+-----------------------------------------
+
+rEdit 1.x -
+    - Ajout correcteur cordial
+    - Ajout de la balise résultat
+    - Ajout de la métadata sous-rubrique
+    - Gérér les liens hypers textes
+    - Gérer le mutli-rubriquage web
+    - Gérer l'ordre des photos (galerie)
+
+rEdit 1.6 - (17/09/2019)
+    - Migration sous Jasmin
+    - Mise à jour de toutes les librairies
+    - Migration sous Maven
+    - Migration sous Git
+    - Nettoyage et modernisation du code (annotations, lambda, etc.) 
+    - Passage en JDK 11
+    - Correction d'un bug pour accéder à la restauration
+    - Modification de l'exception StaxStopException
+
+rEdit 1.5 - (17/08/2014)
+    - Correction de la barre de progression lors de l'upload
+    - Evite les retry lors de l'annulation d'un upload
+    - Correction de bugs mineurs
+    - Ajout version Mac OS X
+    - Correction pour compatibilité Mac OS X
+
+rEdit 1.4 - (19/08/2012)
+    - Ajout du style chapô
+    - Correction point dans le nom du fichier
+    - Correction le dernier est gardé lors de la création d'un nouveau fichier
+    - correction gestion du type article et propriétés article
+    - Ajout des métadonnées pour les images (crédit & légende)
+    - Ajout de la méta-donnée diaporama, position et topicsList
+    - Modification des entrées/sorties pour gérér les métadonnées images
+    - Correction bug envoi d'image sans IPTC
+    - Ajout des métadonnées générales
+    - Ajout des métadonnées web
+    - Correction extension dans l'explorerpane
+    - modification des entrées/sorties pour gérér les métadonnées web
+
+rEdit 1.3 - (22/08/2011)
+    - Correction de code texte non défini dans le FileChooser 
+    - Amélioration de la gestion des paramètres d'impression
+    - Ajout de la gestion des formats TIFF/JPEG2000/PSD/PICT
+    - Ajout de la conversion automatique des images en JPEG
+    - Refonte de la zone d'affichage des images
+    - Vérification des titres en double ou mal placé dans le document
+    - Ajout de l'attribut 'createur' dans l'export
+    - Correction du compteur de signe (dorénavant 1 ligne = 34 signes)
+    - Correction de la visualisation des caractères accentués
+    - Modification des racourcis claviers
+    - Modularisation du code
+    - Mise à jour de la bibliothèque Commons-Lang
+    - Mise à jour de la bibliothèque Commons-Http
+    - Mise à jour de la JRE 1.6U22
+
+rEdit 1.2 - (01/01/2010)
+    - Ajout de l'information de taille dans la liste des fichiers à restaurer
+    - Ajout d'un message de retour si l'envoi du document s'est bien déroulé
+    - Ajout de la gestion des guillemets français
+    - Ajout des raccourcis Ctrl + et Ctrl - pour agrandir ou rétrécir la taille des caractères
+    - Correction pour l'encodage des caractères spéciaux XML
+    - Mise à jour de la JRE 1.6 U18
+
+rEdit 1.1 - (22/08/2009)
+    - Suppression de l'insertion bolobolo
+    - Suppression des formats Note et Resultat
+    - Modification de la gestion d'application des formats
+    - Déplacement du format Signature dans le menu style et du raccourci clavier
+    - Ajout du nom de l'utilisateur et de la date et heure au fichier envoyé
+    - Ajout de la gestion de la compression gzip pour les requêtes réseau
+    - Ajout de la mise à jour des champs IPTC de l'image en fonction de la rubrique
+    - Correction de la gestion de la tabulation dans la fenêtre de dialog IPTC
+    - Correction typo bolobolo
+
+rEdit 1.0 - (12/08/2009)
+    - Correction de l'erreur lors du chargement du profile cmyk.pf dans le jar
+    - Functionnalités de base
+

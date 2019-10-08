@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xproperties>
+
+   <property key="Cancel" value="Annuler" />
+   <property key="Close" value="Fermer" />
+   <property key="Ok" value="Ok" />
+   <property key="Overwrite" value="Remplacer le fichier existant ?" />
+
+   <property key="FullScreen" value="Plein écran" />
+   <property key="IconSize" value="Vignettes" />
+   <property key="SmallIcon" value="Petites" />
+   <property key="MediumIcon" value="Moyennes" />
+   <property key="LargeIcon" value="Grandes" />
+   <property key="InfoDetail" value="Information" />
+   <property key="NoInfo" value="Aucune" />
+   <property key="BriefInfo" value="Nom" />
+   <property key="FullInfo" value="Détaillée" />
+   <property key="ImageSort" value="Trier par" />
+   <property key="SortByName" value="Nom" />
+   <property key="SortByDate" value="Date" />
+   <property key="SortByDimension" value="Dimension" />
+   <property key="SortByLength" value="Taille" />
+   <property key="SortByFormat" value="Format" />
+   <property key="ViewMode" value="Visualisation" />
+   <property key="DetailMode" value="Liste" />
+   <property key="IconMode" value="Icone" />
+   <property key="Format" value="Format" />
+   <property key="Name" value="Nom" />
+   <property key="w x h" value="Dimension" />
+   <property key="Size" value="Taille" />
+   <property key="Date" value="Date" />
+
+   <property key="NewDocument" value="Nouveau document" />
+    
+   <property key="AddPicture.DialogTitle" value="Ajouter une photo" />
+   <property key="AddPicture.Error" value="Erreur lors de l'ajout de la photo." />
+
+   <property key="ArticleMetadataDialog.Title" value="Propriétés de l'article" />
+   <property key="ArticleMetadataDialog.SystemProperties" value="Système" />
+   <property key="ArticleMetadataDialog.GeneralProperties" value="Générales" />
+   <property key="ArticleMetadataDialog.WebProperties" value="Web" />
+    
+   <property key="ArticleMetadataDialog.Name" value="Nom" />
+   <property key="ArticleMetadataDialog.Date" value="Date" />
+   <property key="ArticleMetadataDialog.Filename" value="Fichier" />
+   <property key="ArticleMetadataDialog.Length" value="Taille" />
+   <property key="ArticleMetadataDialog.Application" value="Application" />
+   <property key="ArticleMetadataDialog.Version" value="Version" />
+
+   <property key="ArticleMetadataDialog.Author" value="Auteur" />
+   <property key="ArticleMetadataDialog.Keywords" value="Mots clés" />
+   <property key="ArticleMetadataDialog.Country" value="Pays" />
+   <property key="ArticleMetadataDialog.City" value="Ville" />
+   <property key="ArticleMetadataDialog.Address" value="Adresse" />
+   <property key="ArticleMetadataDialog.Tip" value="Séparez les valeurs multiples par un point-virgule (valeur1;valeur2)" />
+    
+   <property key="ArticleMetadataDialog.Type" value="Type" />
+   <property key="ArticleMetadataDialog.Profile" value="Profil" />
+   <property key="ArticleMetadataDialog.Comment" value="Commentaires" />
+   <property key="ArticleMetadataDialog.Position" value="Position" />
+
+   <property key="ArticleMetadataDialog.webTypeStory" value="Article" />
+   <property key="ArticleMetadataDialog.webTypeGallery" value="Diaporama" />
+    
+   <property key="ArticleMetadataDialog.webProfileNormal" value="Normal" />
+   <property key="ArticleMetadataDialog.webProfileInfo" value="Info" />
+   <property key="ArticleMetadataDialog.webProfileExclusif" value="Exclusif" />
+   <property key="ArticleMetadataDialog.webProfileUrgent" value="Urgent" />
+    
+   <property key="ArticleMetadataDialog.webCommentEnable" value="Autoriser" />
+   <property key="ArticleMetadataDialog.webCommentClose" value="Fermer" />
+   <property key="ArticleMetadataDialog.webCommentForbidden" value="Interdire" />
+
+   <property key="ArticlePictureDialog.Title" value="Propriétés des photos" />
+   <property key="ArticlePictureDialog.Credit" value="Crédit" />
+   <property key="ArticlePictureDialog.Caption" value="Légende" />
+
+   <property key="ConnectDialog.Connect" value="Ok" />
+   <property key="ConnectDialog.ConnectionError" value="Erreur lors de la connexion." />
+   <property key="ConnectDialog.Login" value="Utilisateur" />
+   <property key="ConnectDialog.Password" value="Mot de passe" />
+   <property key="ConnectDialog.Title" value="Connecter" />
+   <property key="ConnectDialog.UsernameError" value="L'utilisateur ou le mot de passe n'est pas valide." />
+
+   <property key="DirectoryDialog.Title" value="Répertoires" />
+
+   <property key="EditPicture.IpctError" value="Erreur lors de la lecture des champs ITPC de l'image." />
+
+   <property key="FileChooser.IsNotDir" value="Le fichier sélectionné n'est pas un répertoire" />
+   <property key="FileChooser.Overwrite" value="Le fichier existe déjà. Voulez-vous le remplacer ?" />
+   <property key="FileChooser.Select" value="Sélectionner" />
+
+   <property key="GuiUtils.Error" value="Erreur" />
+   <property key="GuiUtils.Information" value="Information" />
+
+   <property key="ImageList.ThumbSize" value="Taille des vignettes" />
+   <property key="ImageList.SmallThumb" value="Petite" />
+   <property key="ImageList.RegularThumb" value="Moyenne" />
+   <property key="ImageList.LargeThumb" value="Grande" />
+   <property key="ImageList.ShowText" value="Afficher les informations" />
+   <property key="ImageList.ThumbSort" value="Tri des vignettes" />
+   <property key="ImageList.SortByDate" value="Date" />
+   <property key="ImageList.SortByName" value="Nom" />
+   <property key="ImageList.SortBySize" value="Taille" />
+
+   <property key="IptcDialog.Title" value="Editer les champs IPTC" />
+   <property key="IptcDialog.ByLine" value="Photographe" />
+   <property key="IptcDialog.ByLineTitle" value="Dénomination" />
+   <property key="IptcDialog.Caption" value="Légende" />
+   <property key="IptcDialog.Category" value="Catégorie" />
+   <property key="IptcDialog.City" value="Ville" />
+   <property key="IptcDialog.Copyright" value="Copyright" />
+   <property key="IptcDialog.Country" value="Pays" />
+   <property key="IptcDialog.CountryCode" value="Code du pays" />
+   <property key="IptcDialog.CreatedDate" value="Date de prise de vue" />
+   <property key="IptcDialog.Credit" value="Crédit" />
+   <property key="IptcDialog.HeadLine" value="Reportage" />
+   <property key="IptcDialog.Keywords" value="Mots clés" />
+   <property key="IptcDialog.OriginalProgram" value="Programme" />
+   <property key="IptcDialog.OriginalTransmissionReference" value="" />
+   <property key="IptcDialog.ReleaseDate" value="Date de mise à disposition" />
+   <property key="IptcDialog.Source" value="Source" />
+   <property key="IptcDialog.Special" value="Instructions spéciales" />
+   <property key="IptcDialog.State" value="Département" />
+   <property key="IptcDialog.Subject" value="Sujet" />
+   <property key="IptcDialog.SubCategory" value="Sous catégorie" />
+   <property key="IptcDialog.Urgency" value="Urgence" />
+   <property key="IptcDialog.Writer" value="Rédacteur" />
+   <property key="IptcDialog.IptcError" value="Erreur lors de l'écriture des champs IPTC dans la photo." />
+
+   <property key="LookAndFeel.NotSupported" value="Ce look and feel n'est pas supporté." />
+
+   <property key="MonitorDialog.Compressing" value="Compression du fichiers en cours." />
+   <property key="MonitorDialog.SendingToEidos" value="Envoyer le document" />
+   <property key="MonitorDialog.Speed" value="Débit" />
+   <property key="MonitorDialog.Time" value="Durée" />
+   <property key="MonitorDialog.Uploaded" value="Envoyé" />
+   <property key="MonitorDialog.Uploading" value="Envoi du fichier vers le serveur en cours." />
+
+   <property key="OpenArticle.Error" value="Erreur lors de l'ouverture du fichier." />
+   <property key="OpenArticle.Title" value="Ouvrir un document" />
+
+   <property key="PictureViewer.CloseViewer" value="Fermer" />
+   <property key="PictureViewer.DelPicture" value="Retirer la photo" />
+   <property key="PictureViewer.EditPicture" value="Champs IPTC" />
+   <property key="PictureViewer.EditPictureMeta" value="Propriétes" />
+   <property key="PictureViewer.NextPicture" value="Suivante" />
+   <property key="PictureViewer.PrevPicture" value="Précédente" />
+
+   <property key="Print.Error" value="Erreur lors de l'impression." />
+   <property key="Print.SecurityError" value="Droits insuffisants pour accéder à l'imprimante." />
+
+   <property key="RestoreDialog.Title" value="Restaurer un document" />
+   <property key="RestoreDialog.Open" value="Restaurer" />
+   <property key="RestoreDialog.Name" value="Nom" />
+   <property key="RestoreDialog.Date" value="Date" />
+   <property key="RestoreDialog.Size" value="Taille" />
+
+   <property key="SaveArticle.Title" value="Sauver le document" />
+   <property key="SaveArticle.Confirm" value="Sauver" />
+   <property key="SaveArticle.Error" value="Erreur lors de la sauvegarde du document." />
+   <property key="SaveAsArticle.Title" value="Sauver sous" />
+
+   <property key="Search.Continue" value="La fin du texte est atteinte. Continuer la recherche ?" />
+   <property key="Search.EndOfText" value="Rechercher" />
+   <property key="Search.NotFound" value="Impossible de trouver le texte" />
+   <property key="Search.Occurences" value="occurence(s) remplacée(s)." />
+
+   <property key="SearchDialog.Backward" value="En arrière" />
+   <property key="SearchDialog.FindNext" value="Rechercher" />
+   <property key="SearchDialog.MatchCase" value="Respecter la casse" />
+   <property key="SearchDialog.Regexp" value="Expression régulière" />
+   <property key="SearchDialog.SearchPattern" value="Recherche" />
+   <property key="SearchDialog.Title" value="Rechercher" />
+   <property key="SearchDialog.WholeWord" value="Mot complet" />
+
+   <property key="SearchReplaceDialog.Backward" value="En arrière" />
+   <property key="SearchReplaceDialog.FindNext" value="Rechercher" />
+   <property key="SearchReplaceDialog.MatchCase" value="Respecter la casse" />
+   <property key="SearchReplaceDialog.Regexp" value="Expression régulière" />
+   <property key="SearchReplaceDialog.Replace" value="Remplacer" />
+   <property key="SearchReplaceDialog.ReplaceAll" value="Remplacer tout" />
+   <property key="SearchReplaceDialog.ReplacePattern" value="Remplacer par" />
+   <property key="SearchReplaceDialog.SearchPattern" value="Recherche" />
+   <property key="SearchReplaceDialog.Title" value="Rechercher et remplacer" />
+   <property key="SearchReplaceDialog.WholeWord" value="Mot complet" />
+
+   <property key="StatusBar.Pictures" value="Photos" />
+   <property key="StatusBar.Selection" value="Sélection" />
+   <property key="StatusBar.Total" value="Total" />
+
+   <property key="StructureDialog.BadTitleStyle" value="Erreur pour le style Titre" />
+   <property key="StructureDialog.Continue" value="&lt;html&gt;Le paragraphe TITRE ne doit être défini qu'une seule et unique fois, en&lt;br&gt;tout début de document ou après le surtitre. Vous devez, par exemple, &lt;br&gt;utiliser le style INTERTITRE pour titrer les brèves.&lt;br&gt;&lt;br&gt;Souhaitez-vous continuer à envoyer votre document malgré l'erreur?&lt;/html&gt;" />
+
+   <property key="StructureHandler.AddImageFileError" value="Erreur lors de la lecture d'une image dans le fichier." />
+   <property key="StructureHandler.parseDocumentError" value="Erreur lors de la lecture du texte dans le fichier." />
+
+   <property key="UploadDialog.CannotSendPicture" value="Envoyer le document" />
+   <property key="UploadDialog.Column" value="Rubrique" />
+   <property key="UploadDialog.UploadSuccess" value="Le document a été envoyé avec succès." />
+   <property key="UploadDialog.ConnectionError" value="Erreur lors de la connexion." />
+   <property key="UploadDialog.Continue" value="&lt;html&gt;Vous n'avez pas les droits pour envoyer des photos.&lt;br&gt; Souhaitez-vous envoyer le texte seul ?&lt;/html&gt;" />
+   <property key="UploadDialog.Docname" value="Nom du document" />
+   <property key="UploadDialog.DocnameError" value="Le nom du document n'est pas valide. (3 caractères au minimum)" />
+   <property key="UploadDialog.SendPicture" value="Envoyer les photos" />
+   <property key="UploadDialog.Title" value="Envoyer le document" />
+   <property key="UploadDialog.Upload" value="Envoyer" />
+   <property key="UploadDialog.User" value="Utilisateur" />
+
+   <property key="ZipReader.StructureNotFound" value="Erreur lors de la lecture du fichier. La structure du fichier n'est pas présente." />
+
+   <!-- actions -->
+   <property key="File.txt" value="Fichier" />
+   <property key="NewArticle.txt" value="Nouveau document" />
+   <property key="NewArticle.tip" value="Créer un nouveau document" />
+   <property key="NewArticle.ico" value="resource/icon/filenew.png" />
+   <property key="NewArticle.key" value="ctrl N" />
+
+   <property key="OpenArticle.txt" value="Ouvrir un document..." />
+   <property key="OpenArticle.tip" value="Ouvrir un document existant" />
+   <property key="OpenArticle.ico" value="resource/icon/fileopen.png" />
+   <property key="OpenArticle.key" value="ctrl O" />
+
+   <property key="RestoreArticle.txt" value="Restaurer un document..." />
+   <property key="RestoreArticle.tip" value="Restaurer un ancien document" />
+
+   <property key="SaveArticle.txt" value="Sauver le document" />
+   <property key="SaveArticle.tip" value="Sauver le document courant" />
+   <property key="SaveArticle.ico" value="resource/icon/filesave.png" />
+   <property key="SaveArticle.key" value="ctrl S" />
+
+   <property key="SaveAsArticle.txt" value="Sauver sous..." />
+   <property key="SaveAsArticle.tip" value="Sauver le document courant sous un autre nom" />
+
+   <property key="ArticleProperties.txt" value="Propriétés du document..." />
+   <property key="ArticleProperties.tip" value="Afficher les propriétés du document courant" />
+   <property key="ArticleProperties.ico" value="resource/icon/identity.png" />
+   <property key="ArticleProperties.key" value="ctrl M" />
+
+   <property key="UploadArticle.txt" value="Envoyer le document..." />
+   <property key="UploadArticle.tip" value="Envoyer le document courant" />
+   <property key="UploadArticle.ico" value="resource/icon/upload.png" />
+   <property key="UploadArticle.key" value="ctrl U" />
+
+   <property key="Quit.txt" value="Quitter" />
+   <property key="Quit.tip" value="Quitter l'application" />
+
+   <property key="Print.txt" value="Imprimer le document..." />
+   <property key="Print.tip" value="Imprimer le document courant" />
+   <property key="Print.ico" value="resource/icon/fileprint.png" />
+   <property key="Print.key" value="ctrl P" />
+
+   <property key="Edit.txt" value="Edition" />
+   <property key="Undo.txt" value="Annuler" />
+   <property key="Undo.tip" value="Annuler la dernière action" />
+   <property key="Undo.ico" value="resource/icon/undo.png" />
+   <property key="Undo.key" value="ctrl Z" />
+
+   <property key="Redo.txt" value="Refaire" />
+   <property key="Redo.tip" value="Refaire la dernière action annulée" />
+   <property key="Redo.ico" value="resource/icon/redo.png" />
+   <property key="Redo.key" value="ctrl Y" />
+
+   <property key="Cut.txt" value="Couper" />
+   <property key="Cut.key" value="ctrl X" />
+
+   <property key="Copy.txt" value="Copier" />
+   <property key="Copy.key" value="ctrl C" />
+
+   <property key="Paste.txt" value="Coller" />
+   <property key="Paste.key" value="ctrl V" />
+
+   <property key="SearchNext.txt" value="Rechercher suivant" />
+   <property key="SearchNext.key" value="F3" />
+
+   <property key="Search.txt" value="Rechercher..." />
+   <property key="Search.tip" value="Rechercher un mot dans le document courant" />
+   <property key="Search.key" value="ctrl F" />
+
+   <property key="AddBoloBolo.txt" value="Insérer du bolobolo" />
+   <property key="AddBoloBolo.tip" value="Insérer du texte de démonstration" />
+   <property key="AddBoloBolo.key" value="ctrl shift L" />
+
+   <property key="Style.txt" value="Style" />
+   <property key="SearchAndReplace.txt" value="Remplacer..." />
+   <property key="SearchAndReplace.tip" value="Rechercher et remplacer un mot dans le document courant" />
+   <property key="SearchAndReplace.key" value="ctrl H" />
+
+   <property key="SetStyleHeading.txt" value="Surtitre" />
+   <property key="SetStyleHeading.tip" value="Appliquer le style 'Surtitre' au paragraphe" />
+   <property key="SetStyleHeading.key" value="alt U" />
+
+   <property key="SetStyleTitle.txt" value="Titre" />
+   <property key="SetStyleTitle.tip" value="Appliquer le style 'Titre' au paragraphe" />
+   <property key="SetStyleTitle.ico" value="resource/icon/titre.png" />
+   <property key="SetStyleTitle.key" value="alt T" />
+
+   <property key="SetStyleSubtitle.txt" value="Soustitre" />
+   <property key="SetStyleSubtitle.tip" value="Appliquer le style 'Soustitre' au paragraphe" />
+   <property key="SetStyleSubtitle.key" value="alt O" />
+
+   <property key="SetStyleChapo.txt" value="Chapô" />
+   <property key="SetStyleChapo.tip" value="Appliquer le style 'Chapô' au paragraphe" />
+   <property key="SetStyleChapo.key" value="alt C" />
+    
+   <property key="SetStyleBody.txt" value="Texte" />
+   <property key="SetStyleBody.tip" value="Appliquer le style 'Texte' au paragraphe" />
+   <property key="SetStyleBody.ico" value="resource/icon/texte.png" />
+   <property key="SetStyleBody.key" value="alt E" />
+
+   <property key="SetStyleCaption.txt" value="Légende" />
+   <property key="SSetStyleCaption.tip" value="Appliquer le style 'Légende' au paragraphe" />
+   <property key="SetStyleCaption.key" value="alt L" />
+
+   <property key="SetStyleSubheading.txt" value="Intertitre" />
+   <property key="SetStyleSubheading.tip" value="Appliquer le style 'Intertitre' au paragraphe" />
+   <property key="SetStyleSubheading.key" value="alt I" />
+
+   <property key="SetStyleThrow.txt" value="Relance" />
+   <property key="SetStyleThrow.tip" value="Appliquer le style 'Relance' au paragraphe" />
+   <property key="SetStyleThrow.key" value="alt R" />
+
+   <property key="SetStyleSignature.txt" value="Signature" />
+   <property key="SetStyleSignature.tip" value="Appliquer le format 'Signature' au texte sélectionné" />
+   <property key="SetStyleSignature.ico" value="resource/icon/signature.png" />
+   <property key="SetStyleSignature.key" value="alt S" />
+
+   <property key="Format.txt" value="Format" />
+
+   <property key="SetStyleResult.txt" value="Résultat" />
+   <property key="SetStyleResult.tip" value="Appliquer le format 'Résultat' au texte sélectionné" />
+   <property key="SetStyleResult.key" value="ctrl T" />
+
+   <property key="SetStyleNote.txt" value="Note" />
+   <property key="SetStyleNote.tip" value="Appliquer le format 'Note' au texte sélectionné" />
+   <property key="SetStyleNote.key" value="ctrl O" />
+
+   <property key="SetTextRegular.txt" value="Normal" />
+   <property key="SetTextRegular.tip" value="Mettre en normal le texte sélectionné" />
+   <property key="SetTextRegular.key" value="ctrl R" />
+
+   <property key="SetTextBold.txt" value="Gras" />
+   <property key="SetTextBold.tip" value="Mettre en gras le texte sélectionné" />
+   <property key="SetTextBold.key" value="ctrl B" />
+
+   <property key="SetTextItalic.txt" value="Italique" />
+   <property key="SetTextItalic.tip" value="Mettre en italique le texte sélectionné" />
+   <property key="SetTextItalic.key" value="ctrl I" />
+
+   <property key="Picture.txt" value="Photo" />
+   <property key="AddPicture.txt" value="Ajouter une photo..." />
+   <property key="AddPicture.tip" value="Ajouter une photo au document" />
+   <property key="AddPicture.ico" value="resource/icon/photo_add.png" />
+   <property key="AddPicture.key" value="alt A" />
+
+   <property key="EditPicture.txt" value="Champs IPTC..." />
+   <property key="EditPicture.tip" value="Editer les champs IPTC des photos sélectionnées" />
+   <property key="EditPicture.key" value="alt P" />
+
+   <property key="EditPictureMeta.txt" value="Propriétés des photos..." />
+   <property key="EditPictureMeta.tip" value="Editer les propriétés des photos sélectionnées" />
+   <property key="EditPictureMeta.ico" value="resource/icon/photo_info.png" />
+   <property key="EditPictureMeta.key" value="alt M" />
+
+   <property key="ShowPicture.txt" value="Visualiser les photos..." />
+   <property key="ShowPicture.tip" value="Visualiser les photos en mode plein écran" />
+   <property key="ShowPicture.ico" value="resource/icon/photo.png" />
+   <property key="ShowPicture.key" value="alt V" />
+
+   <property key="DeletePicture.txt" value="Retirer les photos sélectionnées" />
+   <property key="DeletePicture.tip" value="Retirer du document les photos sélectionnées" />
+
+   <property key="Display.txt" value="Affichage" />
+
+   <property key="ShowToolBar.txt" value="Afficher la barre d'outils" />
+
+   <property key="ShowPicturePane.txt" value="Afficher la zone des photos" />
+   <property key="ShowPicturePane.key" value="ctrl W" />
+
+   <property key="ShowStatusBar.txt" value="Afficher la barre de statut" />
+
+   <property key="IncreaseFontSize.txt" value="Agrandir le texte" />
+   <property key="IncreaseFontSize.tip" value="Augmenter le corps du texte (Ctrl +)" />
+   <property key="IncreaseFontSize.ico" value="resource/icon/zoom_in.png" />
+   <property key="IncreaseFontSize.key" value="ctrl K" />
+
+   <property key="DecreaseFontSize.txt" value="Rétrécir le texte" />
+   <property key="DecreaseFontSize.tip" value="Diminuer le corps du texte (Ctrl -)" />
+   <property key="DecreaseFontSize.ico" value="resource/icon/zoom_out.png" />
+   <property key="DecreaseFontSize.key" value="ctrl J" />
+
+   <property key="About.txt" value="Au sujet de..." />
+   <property key="About.ico" value="resource/icon/about.png" />
+
+</xproperties>
