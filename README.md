@@ -5,7 +5,7 @@
 
 rEdit is provided under GPL Licence
 
-Copyright Emmanuel Deviller (c) 1999-2003
+Copyright Emmanuel Deviller (c) 2010-2019
 
 
 
