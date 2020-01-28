@@ -32,7 +32,7 @@ import org.xml.sax.helpers.DefaultHandler;
 public class ResponseHandler extends DefaultHandler {
 
    private static final Logger logger = LoggerFactory.getLogger(ResponseHandler.class);
-   //
+
    protected Response response;
    protected StringBuilder buffer;
 
@@ -72,7 +72,6 @@ public class ResponseHandler extends DefaultHandler {
 
    @Override
    public void ignorableWhitespace(char ch[], int start, int length) {
-      //characters(ch,start,length) ;
    }
 
    // ErrorHandler methods

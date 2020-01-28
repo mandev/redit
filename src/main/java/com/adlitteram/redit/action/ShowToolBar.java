@@ -21,7 +21,7 @@ package com.adlitteram.redit.action;
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
  */
-import com.adlitteram.jasmin.XProp;
+import com.adlitteram.jasmin.property.XProp;
 import com.adlitteram.jasmin.action.XAction;
 import com.adlitteram.redit.AppManager;
 import com.adlitteram.redit.StyleManager;

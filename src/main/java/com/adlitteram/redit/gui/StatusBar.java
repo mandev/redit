@@ -43,14 +43,13 @@ import javax.swing.text.Style;
 public class StatusBar extends JToolBar implements CaretListener, DocumentListener, ListDataListener {
 
    private static final int CHAR_PER_LINE = 34;
-   //
+
    private final JLabel styleLabel;
    private final JLabel totalSizeLabel;
    private final JLabel selectionSizeLabel;
    private final JLabel pictureNumberLabel;
 
    public StatusBar() {
-      //setLayout(new FlowLayout(FlowLayout.LEFT, 5, 0));
       setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, Color.LIGHT_GRAY));
       setFloatable(false);
 
@@ -74,10 +73,6 @@ public class StatusBar extends JToolBar implements CaretListener, DocumentListen
       add(javax.swing.Box.createHorizontalGlue());
    }
 
-//    @Override
-//    public Component add(Component cmpt) {
-//        return super.add(cmpt, FlowLayout.TRAILING) ;
-//    }
    @Override
    public void caretUpdate(CaretEvent e) {
       TextPane textPane = (TextPane) e.getSource();

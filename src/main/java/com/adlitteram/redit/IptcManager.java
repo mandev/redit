@@ -40,13 +40,13 @@ import org.slf4j.LoggerFactory;
 public class IptcManager {
 
    private static final Logger logger = LoggerFactory.getLogger(IptcManager.class);
-   //
+
    public static final String EXIFTOOL_WIN = ReditApplication.PROG_DIR + "ext/windows/exiftool.exe";
    public static final String EXIFTOOL_LIN = ReditApplication.PROG_DIR + "ext/linux/exiftool";
    public static final String EXIFTOOL_MAC = ReditApplication.PROG_DIR + "ext/macosx/exiftool";
-   //
+
    public static final String IPTC1 = "1IPTC:";
-   //
+
    public static final String RECORD_VERSION = IPTC1 + "RecordVersion";
    public static final String OBJECT_TYPE = IPTC1 + "ObjectType";
    public static final String OBJECT_ATTRIBUTE = IPTC1 + "ObjectAttributev";
@@ -104,9 +104,8 @@ public class IptcManager {
    public static final String PREVIEW_FORMAT = IPTC1 + "PreviewFormat";
    public static final String PREVIEW_VERSION = IPTC1 + "PreviewVersion";
    public static final String PREVIEW = IPTC1 + "Preview";
-   //
-   static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy:MM:dd");
-   //
+
+   private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy:MM:dd");
 
    private static void writeTag(Writer out, String tag, String value) throws IOException {
       if (value != null && value.length() > 0) {

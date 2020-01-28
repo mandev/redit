@@ -1,8 +1,3 @@
-/*
- * IptcDialog.java
- *
- * Created on 9 avril 2005, 20:39
- */
 package com.adlitteram.redit.gui.dialog;
 
 /*-
@@ -36,17 +31,21 @@ import cz.autel.dmi.HIGConstraints;
 import cz.autel.dmi.HIGLayout;
 import java.awt.BorderLayout;
 import java.awt.Frame;
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.WindowConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ArticlePropertiesDialog extends JDialog {
 
    private static final Logger logger = LoggerFactory.getLogger(ArticlePropertiesDialog.class);
-   //
+
    private final Article article;
    private final ArticleMetadata meta;
-   //
+
    private GeneralPropertiesPanel generalPanel;
    private WebPropertiesPanel webPanel;
    private SystemPropertiesPanel sysPanel;

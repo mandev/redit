@@ -40,12 +40,12 @@ import org.znerd.xmlenc.XMLOutputter;
 public class EidosZipArticleWriter extends EidosArticleWriter {
 
    private static final Logger logger = LoggerFactory.getLogger(EidosZipArticleWriter.class);
-   //
+
    private static final String SUPPLIER = "Editor";
    private static final FastDateFormat DF0 = FastDateFormat.getInstance("ddMMyy'_'HHmmss");
    private static final FastDateFormat DF2 = FastDateFormat.getInstance("yyyyMMdd");
    private static final FastDateFormat DF3 = FastDateFormat.getInstance("yyyyMMddHHmmss");
-   //
+
    private final User user;
    private final Column column;
    private String docName;

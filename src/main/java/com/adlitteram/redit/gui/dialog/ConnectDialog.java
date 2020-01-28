@@ -35,139 +35,146 @@ import java.awt.BorderLayout;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ConnectDialog extends JDialog {
 
-   private static final Logger logger = LoggerFactory.getLogger(ConnectDialog.class);
-   //
-   private final AppManager appManager;
-   private JTextField usernameField;
-   private JPasswordField passwordField;
+    private static final Logger logger = LoggerFactory.getLogger(ConnectDialog.class);
 
-   public static void create(AppManager appManager) {
-      ConnectDialog dialog = new ConnectDialog(appManager);
-      dialog.setVisible(true);
-   }
+    private final AppManager appManager;
+    private JTextField usernameField;
+    private JPasswordField passwordField;
 
-   private ConnectDialog(AppManager appManager) {
-      super((MainFrame) Main.getApplication().getMainFrame(), Message.get("ConnectDialog.Title"), true);
-      this.appManager = appManager;
+    public static void create(AppManager appManager) {
+        ConnectDialog dialog = new ConnectDialog(appManager);
+        dialog.setVisible(true);
+    }
 
-      setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-      getContentPane().add(buildGeneralPanel(), BorderLayout.CENTER);
-      getContentPane().add(buildButtonPanel(), BorderLayout.SOUTH);
+    private ConnectDialog(AppManager appManager) {
+        super((MainFrame) Main.getApplication().getMainFrame(), Message.get("ConnectDialog.Title"), true);
+        this.appManager = appManager;
 
-      pack();
-      setLocationRelativeTo(getParent());
-   }
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().add(buildGeneralPanel(), BorderLayout.CENTER);
+        getContentPane().add(buildButtonPanel(), BorderLayout.SOUTH);
 
-   private JPanel buildButtonPanel() {
+        pack();
+        setLocationRelativeTo(getParent());
+    }
 
-      JButton okButton = new JButton(Message.get("ConnectDialog.Connect"));
-      getRootPane().setDefaultButton(okButton);
-      okButton.addActionListener((ActionEvent e) -> okPressed());
+    private JPanel buildButtonPanel() {
 
-      JButton cancelButton = new JButton(Message.get("Cancel"));
-      cancelButton.addActionListener((ActionEvent e) -> cancelPressed());
+        JButton okButton = new JButton(Message.get("ConnectDialog.Connect"));
+        getRootPane().setDefaultButton(okButton);
+        okButton.addActionListener(e -> okPressed());
 
-      int w[] = {5, 0, 5, -6, 5, -4, 5};
-      int h[] = {5, 0, 10};
-      HIGLayout l = new HIGLayout(w, h);
-      HIGConstraints c = new HIGConstraints();
-      l.setColumnWeight(3, 1);
+        JButton cancelButton = new JButton(Message.get("Cancel"));
+        cancelButton.addActionListener(e -> cancelPressed());
 
-      JPanel buttonPanel = new JPanel(l);
-      buttonPanel.add(okButton, c.xy(4, 2));
-      buttonPanel.add(cancelButton, c.xy(6, 2));
-      return buttonPanel;
-   }
+        int w[] = {5, 0, 5, -6, 5, -4, 5};
+        int h[] = {5, 0, 10};
+        HIGLayout l = new HIGLayout(w, h);
+        HIGConstraints c = new HIGConstraints();
+        l.setColumnWeight(3, 1);
 
-   private JPanel buildGeneralPanel() {
+        JPanel buttonPanel = new JPanel(l);
+        buttonPanel.add(okButton, c.xy(4, 2));
+        buttonPanel.add(cancelButton, c.xy(6, 2));
+        return buttonPanel;
+    }
 
-      usernameField = new JTextField(20);
-      User user = appManager.getUser();
-      if (user != null) {
-         usernameField.setText(user.getUserName());
-      }
+    private JPanel buildGeneralPanel() {
 
-      passwordField = new JPasswordField(20);
-      if (user != null) {
-         passwordField.setText(user.getPassword());
-      }
+        usernameField = new JTextField(20);
+        User user = appManager.getUser();
+        if (user != null) {
+            usernameField.setText(user.getUserName());
+        }
 
-      // Gui
-      int w[] = {10, 0, 5, 0, 10};
-      int h[] = {10, 0, 5, 0, 10};
+        passwordField = new JPasswordField(20);
+        if (user != null) {
+            passwordField.setText(user.getPassword());
+        }
 
-      HIGLayout l = new HIGLayout(w, h);
-      HIGConstraints c = new HIGConstraints();
-      l.setColumnWeight(4, 1);
+        // Gui
+        int w[] = {10, 0, 5, 0, 10};
+        int h[] = {10, 0, 5, 0, 10};
 
-      JPanel panel = new JPanel(l);
-      panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5), BorderFactory.createEtchedBorder()));
+        HIGLayout l = new HIGLayout(w, h);
+        HIGConstraints c = new HIGConstraints();
+        l.setColumnWeight(4, 1);
 
-      panel.add(new JLabel(Message.get("ConnectDialog.Login")), c.xy(2, 2, "r"));
-      panel.add(usernameField, c.xy(4, 2));
-      panel.add(new JLabel(Message.get("ConnectDialog.Password")), c.xy(2, 4, "r"));
-      panel.add(passwordField, c.xy(4, 4));
-      return panel;
-   }
+        JPanel panel = new JPanel(l);
+        panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5), BorderFactory.createEtchedBorder()));
 
-   private void setBusy(boolean b) {
-      if (b) {
-         setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-         usernameField.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-         passwordField.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-      }
-      else {
-         setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-         usernameField.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
-         passwordField.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
-      }
-   }
+        panel.add(new JLabel(Message.get("ConnectDialog.Login")), c.xy(2, 2, "r"));
+        panel.add(usernameField, c.xy(4, 2));
+        panel.add(new JLabel(Message.get("ConnectDialog.Password")), c.xy(2, 4, "r"));
+        panel.add(passwordField, c.xy(4, 4));
+        return panel;
+    }
 
-   private void cancelPressed() {
-      dispose();
-   }
+    private void setBusy(boolean b) {
+        if (b) {
+            setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            usernameField.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            passwordField.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        }
+        else {
+            setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+            usernameField.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
+            passwordField.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
+        }
+    }
 
-   private void okPressed() {
+    private void cancelPressed() {
+        dispose();
+    }
 
-      String username = usernameField.getText();
-      String password = new String(passwordField.getPassword());
+    private void okPressed() {
 
-      if (username.length() == 0) {
-         GuiUtils.showError(Message.get("ConnectDialog.UsernameError"));
-      }
-      else {
-         try {
-            UploadManager uploadManager = appManager.getRemoteManager();
-            setBusy(true);
-            ResponseUser userResponse = uploadManager.getUserInfo(username, password);
-            setBusy(false);
-            if (userResponse != null && userResponse.getError() == 0) {
-               User user = userResponse.getUser();
-               user.setPassword(password);
-               appManager.setUser(user);
-               dispose();
-               UploadDialog.create(appManager);
+        String username = usernameField.getText();
+        String password = new String(passwordField.getPassword());
+
+        if (username.length() == 0) {
+            GuiUtils.showError(Message.get("ConnectDialog.UsernameError"));
+        }
+        else {
+            try {
+                UploadManager uploadManager = appManager.getRemoteManager();
+                setBusy(true);
+                ResponseUser userResponse = uploadManager.getUserInfo(username, password);
+                setBusy(false);
+                if (userResponse != null && userResponse.getError() == 0) {
+                    User user = userResponse.getUser();
+                    user.setPassword(password);
+                    appManager.setUser(user);
+                    dispose();
+                    UploadDialog.create(appManager);
+                }
+                else {
+                    String message = Message.get("ConnectDialog.ConnectionError");
+                    if (userResponse != null) {
+                        message += "\n" + userResponse.getComment();
+                    }
+                    GuiUtils.showError(message);
+                }
             }
-            else {
-               String message = Message.get("ConnectDialog.ConnectionError");
-               if (userResponse != null) {
-                  message += "\n" + userResponse.getComment();
-               }
-               GuiUtils.showError(message);
+            catch (IOException ex) {
+                logger.warn("ConnectDialog.okPressed()", ex);
+                setBusy(false);
+                dispose();
+                GuiUtils.showError(Message.get("ConnectDialog.ConnectionError") + "\n" + ex.getLocalizedMessage());
             }
-         }
-         catch (IOException ex) {
-            logger.warn("ConnectDialog.okPressed()", ex);
-            setBusy(false);
-            dispose();
-            GuiUtils.showError(Message.get("ConnectDialog.ConnectionError") + "\n" + ex.getLocalizedMessage());
-         }
-      }
-   }
+        }
+    }
 }

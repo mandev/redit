@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
 public class Copy extends XAction {
 
    private static final Logger logger = LoggerFactory.getLogger(Copy.class);
-   //
+   
    private final AppManager appManager;
 
    public Copy(AppManager appManager) {

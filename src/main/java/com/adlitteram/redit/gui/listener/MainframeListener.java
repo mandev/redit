@@ -29,32 +29,15 @@ import java.awt.event.WindowEvent;
 
 public class MainframeListener extends WindowAdapter {
 
-   private final MainFrame mainFrame;
+    private final MainFrame mainFrame;
 
-   public MainframeListener(MainFrame mainFrame) {
-      this.mainFrame = mainFrame;
-   }
+    public MainframeListener(MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
+    }
 
-   @Override
-   public void windowClosing(WindowEvent e) {
-      AppManager appManager = mainFrame.getAppManager();
-      Quit.action(appManager);
-   }
-//    public void windowActivated(WindowEvent e) {
-//    }
-//    
-//    public void windowDeactivated(WindowEvent e) {
-//    }
-//    
-//    public void windowIconified(WindowEvent e) {
-//    }
-//    
-//    public void windowClosed(WindowEvent e) {
-//    }
-//    
-//    public void windowOpened(WindowEvent e) {
-//    }
-//
-//    public void windowDeiconified(WindowEvent e) {        
-//    }
+    @Override
+    public void windowClosing(WindowEvent e) {
+        AppManager appManager = mainFrame.getAppManager();
+        Quit.action(appManager);
+    }
 }

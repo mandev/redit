@@ -31,10 +31,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.XMLReader;
 
-//static final String DEFAULT_PARSER_NAME = "javax.xml.parsers.SAXParser";
-//XMLReader parser = (XMLReader)Class.forName(DEFAULT_PARSER_NAME).newInstance();
-//static final String DEFAULT_PARSER_NAME = "org.apache.xerces.parsers.SAXParser";
-//parser.setFeature("http://apache.org/xml/features/continue-after-fatal-error", false);
 public class XPropertiesReader {
 
    private static final Logger logger = LoggerFactory.getLogger(XPropertiesReader.class);
@@ -51,7 +47,6 @@ public class XPropertiesReader {
          parser.setErrorHandler(xh);
          parser.setFeature("http://xml.org/sax/features/validation", false);
          parser.setFeature("http://xml.org/sax/features/namespaces", false);
-         //parser.setFeature( "http://apache.org/xml/features/validation/schema", false );
          parser.parse(uri.toString());
       }
       catch (org.xml.sax.SAXParseException spe) {

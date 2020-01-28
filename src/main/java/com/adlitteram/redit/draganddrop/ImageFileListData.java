@@ -40,8 +40,9 @@ import org.slf4j.LoggerFactory;
 public class ImageFileListData implements Transferable, ClipboardOwner {
 
    private static final Logger logger = LoggerFactory.getLogger(ImageFileListData.class);
-   private static final DataFlavor fileListFlavor = DataFlavor.javaFileListFlavor;
-   //
+   
+   private static final DataFlavor FILE_LIST_FLAVOR = DataFlavor.javaFileListFlavor;
+
    private final List<File> fileList;
 
    private ImageFileListData(List<File> fileList) {
@@ -50,17 +51,17 @@ public class ImageFileListData implements Transferable, ClipboardOwner {
 
    @Override
    public Object getTransferData(DataFlavor flavor) {
-      return (fileListFlavor.equals(flavor)) ? fileList : null;
+      return (FILE_LIST_FLAVOR.equals(flavor)) ? fileList : null;
    }
 
    @Override
    public DataFlavor[] getTransferDataFlavors() {
-      return new DataFlavor[]{fileListFlavor};
+      return new DataFlavor[]{FILE_LIST_FLAVOR};
    }
 
    @Override
    public boolean isDataFlavorSupported(DataFlavor flavor) {
-      return (fileListFlavor.equals(flavor));
+      return (FILE_LIST_FLAVOR.equals(flavor));
    }
 
    @Override
@@ -69,7 +70,7 @@ public class ImageFileListData implements Transferable, ClipboardOwner {
 
    public static boolean canImport(JComponent comp, DataFlavor flavors[]) {
       for (DataFlavor flavor : flavors) {
-         if (fileListFlavor.equals(flavor)) {
+         if (FILE_LIST_FLAVOR.equals(flavor)) {
             return true;
          }
       }
@@ -92,12 +93,12 @@ public class ImageFileListData implements Transferable, ClipboardOwner {
 
    // Paste/drop
    public static boolean importData(JComponent comp, Transferable t) {
-      return t.isDataFlavorSupported(fileListFlavor) ? importPictures(t) : false;
+      return t.isDataFlavorSupported(FILE_LIST_FLAVOR) ? importPictures(t) : false;
    }
 
    private static boolean importPictures(Transferable t) {
       try {
-         List<File> fileList = (List<File>) t.getTransferData(fileListFlavor);
+         List<File> fileList = (List<File>) t.getTransferData(FILE_LIST_FLAVOR);
          File[] files = fileList.toArray(new File[fileList.size()]);
 
          Article article = Main.getAppManager().getArticle();

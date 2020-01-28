@@ -43,8 +43,6 @@ public class DropTargetWrapper extends DropTarget {
 
    @Override
    public void dragEnter(DropTargetDragEvent e) {
-      //System.err.println("Drag Enter");
-
       if (transHandler.canImport(component, e.getCurrentDataFlavors())) {
          e.acceptDrag(e.getDropAction());
       }

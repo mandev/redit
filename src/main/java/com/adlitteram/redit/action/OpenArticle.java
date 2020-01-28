@@ -22,7 +22,7 @@ package com.adlitteram.redit.action;
  * #L%
  */
 import com.adlitteram.jasmin.Message;
-import com.adlitteram.jasmin.XProp;
+import com.adlitteram.jasmin.property.XProp;
 import com.adlitteram.jasmin.action.XAction;
 import com.adlitteram.jasmin.gui.widget.FileChooser;
 import com.adlitteram.jasmin.utils.ExtFilter;
@@ -43,7 +43,7 @@ import org.slf4j.LoggerFactory;
 public class OpenArticle extends XAction {
 
    private static final Logger logger = LoggerFactory.getLogger(OpenArticle.class);
-   //
+ 
    private final AppManager appManager;
 
    public OpenArticle(AppManager appManager) {

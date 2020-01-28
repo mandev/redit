@@ -32,7 +32,6 @@ import org.slf4j.LoggerFactory;
 public class EidosArticleWriter extends ArticleWriter {
 
    private static final Logger logger = LoggerFactory.getLogger(EidosArticleWriter.class);
-   //
 
    public EidosArticleWriter(Article article) {
       super(article);

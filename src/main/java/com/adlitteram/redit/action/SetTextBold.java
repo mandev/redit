@@ -34,10 +34,10 @@ import org.slf4j.LoggerFactory;
 public class SetTextBold extends XAction {
 
    private static final Logger logger = LoggerFactory.getLogger(SetTextBold.class);
-   //
+
    public static final AttributeSet BOLD_STYLE = getBoldStyle();
    public static final AttributeSet NO_BOLD_STYLE = getNoBoldStyle();
-   //
+
    private final AppManager appManager;
 
    public SetTextBold(AppManager appManager) {

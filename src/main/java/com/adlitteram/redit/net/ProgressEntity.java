@@ -48,6 +48,5 @@ public class ProgressEntity extends HttpEntityWrapper {
       pos.addProgressListener(listener);
       wrappedEntity.writeTo(pos);
       logger.info("RETURN");
-
    }
 }

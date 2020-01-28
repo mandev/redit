@@ -35,7 +35,6 @@ import javax.swing.*;
 abstract public class AbstractSearchDialog extends JDialog implements WindowListener {
 
    protected AppManager appManager;
-   //
    protected JTextField replaceField;
    protected JTextField searchField;
    protected JCheckBox backwardCheck;
@@ -74,8 +73,12 @@ abstract public class AbstractSearchDialog extends JDialog implements WindowList
       }
       JTextPane textPane = appManager.getArticlePane().getTextPane();
 
-      int count = SearchEngine.replaceAll(textPane, searchField.getText(), replaceField.getText(), matchCaseCheck.isSelected(),
-              wholeWordCheck.isSelected(), regexpCheck.isSelected());
+      int count = SearchEngine.replaceAll(textPane, 
+              searchField.getText(), 
+              replaceField.getText(), 
+              matchCaseCheck.isSelected(),
+              wholeWordCheck.isSelected(), 
+              regexpCheck.isSelected());
 
       GuiUtils.showMessage(count + " " + Message.get("Search.Occurences"));
    }

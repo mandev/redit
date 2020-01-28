@@ -37,7 +37,7 @@ import org.slf4j.LoggerFactory;
 public class SetStyleResult extends XAction {
 
    private static final Logger logger = LoggerFactory.getLogger(SetStyleResult.class);
-   //
+   
    private final AppManager appManager;
 
    public SetStyleResult(AppManager appManager) {

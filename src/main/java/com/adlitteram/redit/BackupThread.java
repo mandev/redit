@@ -37,19 +37,19 @@ public final class BackupThread {
 
    private static final Logger logger = LoggerFactory.getLogger(BackupThread.class);
 
-   private static final BckThread bckThread = new BckThread();
+   private static final BckThread BACKUP_THREAD = new BckThread();
 
    public static void startBackup() {
-      bckThread.setPriority(Thread.MIN_PRIORITY);
-      bckThread.start();
+      BACKUP_THREAD.setPriority(Thread.MIN_PRIORITY);
+      BACKUP_THREAD.start();
    }
 
    public static void suspendBackup() {
-      bckThread.suspendBackup();
+      BACKUP_THREAD.suspendBackup();
    }
 
    public static void resumeBackup() {
-      bckThread.resumeBackup();
+      BACKUP_THREAD.resumeBackup();
    }
 
    // Real backup Thread
@@ -167,38 +167,4 @@ public final class BackupThread {
       }
    }
 }
-//        private FileLock lock;
-//        private FileChannel channel;
-//        private void acquireFileLock() {
-//            int i = 0;
-//            while ((lock == null || !lock.isValid())) {
-//                if (i > 99) {
-//                    logger.info("Cannot acquire lock");
-//                    break;
-//                }
-//                try {
-//                    File lockFile = new File(Main.USER_LCK_DIR, "lock." + (i++));
-//                    if (!lockFile.exists()) lockFile.createNewFile();
-//                    channel = new RandomAccessFile(lockFile, "rw").getChannel();
-//                    lock = channel.tryLock();
-//                }
-//                catch (IOException ex) {
-//                    logger.warn("", ex);
-//                    closeQuietly(channel);
-//                    lock = null;
-//                }
-//            }
-//        }
-//        private void releaseFileLock() {
-//            if (channel != null) {
-//                try {
-//                    channel.close();
-//                    lock = null;
-//                    channel = null;
-//                }
-//                catch (IOException ex) {
-//                    logger.warn("", ex);
-//                }
-//            }
-//        }
 

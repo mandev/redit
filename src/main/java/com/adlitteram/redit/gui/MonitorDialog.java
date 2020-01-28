@@ -44,10 +44,9 @@ import javax.swing.border.CompoundBorder;
 public class MonitorDialog extends JDialog {
 
    public interface CancelListener {
-
       public void cancel(AWTEvent event);
    }
-   //
+   
    protected JLabel messageLabel;
    protected JLabel label1;
    protected JLabel label2;
@@ -87,7 +86,7 @@ public class MonitorDialog extends JDialog {
 
    private JComponent buildButtonPanel() {
       JButton cancelButton = new JButton(Message.get("Cancel"));
-      cancelButton.addActionListener((ActionEvent e) -> {
+      cancelButton.addActionListener( e -> {
          isCanceled = true;
          if (cancelListener != null) {
             cancelListener.cancel(e);

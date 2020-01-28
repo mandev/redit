@@ -22,7 +22,7 @@ package com.adlitteram.redit.gui;
  * #L%
  */
 import com.adlitteram.jasmin.WidgetManager;
-import com.adlitteram.jasmin.XProp;
+import com.adlitteram.jasmin.property.XProp;
 import com.adlitteram.jasmin.gui.GuiBuilder;
 import com.adlitteram.jasmin.utils.GuiUtils;
 import com.adlitteram.redit.AppManager;

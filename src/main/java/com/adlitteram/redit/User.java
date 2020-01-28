@@ -136,22 +136,4 @@ public class User {
    public void setColumnName(String column) {
       this.columnName = column;
    }
-//    public static User createFromFile(String filename) {
-//        try {
-//            return (User) XmlTools.decodeFromFile(new File(filename));
-//        }
-//        catch (Exception ex) {
-//            logger.warn( "", ex);
-//        }
-//        return null;
-//    }
-//
-//    public void saveToFile(String filename) {
-//        try {
-//            XmlTools.encodeToFile(this, new File(filename));
-//        }
-//        catch (IOException ex) {
-//            logger.warn( "", ex);
-//        }
-//    }
 }

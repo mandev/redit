@@ -24,19 +24,16 @@ package com.adlitteram.redit;
 import java.util.ArrayList;
 import javax.swing.text.Style;
 
-public class NamedGroup {
+public class StyleGroup {
 
    private final String name;
    private final ArrayList<Style> styleList;
 
-   public NamedGroup(String name) {
+   public StyleGroup(String name) {
       this.styleList = new ArrayList<>();
       this.name = name;
    }
 
-   /**
-    * @return the name
-    */
    public String getName() {
       return name;
    }

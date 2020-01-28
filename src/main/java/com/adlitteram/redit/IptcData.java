@@ -27,7 +27,7 @@ import java.util.Date;
 public class IptcData implements Serializable {
 
    private static final long serialVersionUID = 4625550456259117836L;
-   //
+
    private String filename;
    private String headline;
    private String subject;
@@ -44,9 +44,6 @@ public class IptcData implements Serializable {
    private Date createdDate;
    private Date releasedDate;
 
-   /**
-    * Creates a new instance of IptcData
-    */
    public IptcData() {
    }
 

@@ -22,7 +22,7 @@ package com.adlitteram.redit.action;
  * #L%
  */
 import com.adlitteram.jasmin.Message;
-import com.adlitteram.jasmin.XProp;
+import com.adlitteram.jasmin.property.XProp;
 import com.adlitteram.jasmin.action.XAction;
 import com.adlitteram.jasmin.utils.GuiUtils;
 import com.adlitteram.redit.AppManager;

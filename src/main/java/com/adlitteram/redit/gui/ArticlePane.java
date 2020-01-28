@@ -21,7 +21,7 @@ package com.adlitteram.redit.gui;
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
  */
-import com.adlitteram.jasmin.XProp;
+import com.adlitteram.jasmin.property.XProp;
 import com.adlitteram.jasmin.gui.GuiBuilder;
 import com.adlitteram.jasmin.gui.explorer.ExplorerModel;
 import com.adlitteram.jasmin.gui.explorer.ExplorerPane;
@@ -35,7 +35,15 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JSplitPane;
+import javax.swing.JTextPane;
+import javax.swing.SwingUtilities;
+import javax.swing.TransferHandler;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import javax.swing.event.ListSelectionEvent;
@@ -149,8 +157,6 @@ public class ArticlePane extends JPanel implements ListSelectionListener, CaretL
    }
 
    public void setPicturePaneVisible(boolean isVisible) {
-      //if (picturePane.isVisible() == isVisible) return;
-
       if (isVisible) {
          splitPane.setDividerSize(DIVIDER_SIZE);
          splitPane.setDividerLocation(splitPane.getHeight() - splitPane.getDividerSize() - XProp.getInt("PicturePaneHeight", 80));
@@ -194,9 +200,7 @@ public class ArticlePane extends JPanel implements ListSelectionListener, CaretL
 
    @Override
    public void valueChanged(ListSelectionEvent e) {
-      //if (!e.getValueIsAdjusting()) {
       mainFrame.getAppManager().getActionManager().enableActions();
-      //}
    }
 
    @Override

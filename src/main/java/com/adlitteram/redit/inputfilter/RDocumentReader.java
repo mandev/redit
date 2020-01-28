@@ -36,7 +36,7 @@ import org.xml.sax.XMLReader;
 public class RDocumentReader {
 
    private static final Logger logger = LoggerFactory.getLogger(RDocumentReader.class);
-   //
+
    private final StyledDocument document;
 
    public RDocumentReader(StyledDocument document) {

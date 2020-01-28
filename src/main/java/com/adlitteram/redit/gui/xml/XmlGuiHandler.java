@@ -22,7 +22,7 @@ package com.adlitteram.redit.gui.xml;
  * #L%
  */
 import com.adlitteram.jasmin.WidgetManager;
-import com.adlitteram.jasmin.XProp;
+import com.adlitteram.jasmin.property.XProp;
 import com.adlitteram.jasmin.gui.GuiBuilder;
 import com.adlitteram.jasmin.gui.RecentFilesItems;
 import com.adlitteram.redit.gui.MainFrame;
@@ -114,8 +114,6 @@ public class XmlGuiHandler extends DefaultHandler {
          }
 
          ((JComponent) stateStack.peek()).add(item);
-
-         // mainFrame.registerWidget(item) ;
       }
       else if (raw.equalsIgnoreCase("button")) {
          JButton item = guiBuilder.buildButton(attrs.getValue("action"), attrs.getValue("icon"), attrs.getValue("shortcut"),
@@ -189,9 +187,6 @@ public class XmlGuiHandler extends DefaultHandler {
          toolBar.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
          toolBar.setOpaque(true);
          toolBar.setFloatable(false);
-         //toolBar.setFocusable(false) ;
-
-         // toolBar.setBorderPainted(true) ;
          stateStack.push(toolBar);
       }
       else if (raw.equalsIgnoreCase("statusbar")) {
@@ -214,7 +209,6 @@ public class XmlGuiHandler extends DefaultHandler {
       else if (raw.equalsIgnoreCase("statusbar")) {
          JComponent component = (JComponent) stateStack.peek();
          component.add(javax.swing.Box.createHorizontalStrut(5));
-         //component.add(javax.swing.Box.createHorizontalGlue());
       }
    }
 

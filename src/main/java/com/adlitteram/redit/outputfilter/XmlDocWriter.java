@@ -21,7 +21,7 @@ package com.adlitteram.redit.outputfilter;
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
  */
-import com.adlitteram.redit.NamedGroup;
+import com.adlitteram.redit.StyleGroup;
 import com.adlitteram.redit.StyleManager;
 import java.io.IOException;
 import java.io.Writer;
@@ -33,10 +33,9 @@ public class XmlDocWriter extends AbstractWriter {
    private static final int BOLD = 0x01;
    private static final int ITALIC = 0x02;
    private static final int UNDERLINE = 0x04;
-   //
+
    protected String encoding;
-   //
-   protected NamedGroup currentGroup;
+   protected StyleGroup currentGroup;
    protected NamedStyle currentStyle;
    protected AttributeSet spanAttributes;
    protected int fontMask = 0;
@@ -145,7 +144,7 @@ public class XmlDocWriter extends AbstractWriter {
 
    protected void writeStyle(StyleContext.NamedStyle style) throws IOException {
 
-      NamedGroup group = (NamedGroup) style.getAttribute(StyleManager.GROUP);
+      StyleGroup group = (StyleGroup) style.getAttribute(StyleManager.GROUP);
       if (group != null) {
          if (currentStyle != null && currentStyle.getAttribute(StyleManager.VISIBLE) != Boolean.FALSE) {
             write("</" + currentStyle.getName() + ">");

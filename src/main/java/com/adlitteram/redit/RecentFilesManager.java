@@ -22,7 +22,7 @@ package com.adlitteram.redit;
  * #L%
  */
 import com.adlitteram.jasmin.Message;
-import com.adlitteram.jasmin.XProp;
+import com.adlitteram.jasmin.property.XProp;
 import com.adlitteram.jasmin.gui.RecentFilesItems.RecentFileItem;
 import com.adlitteram.jasmin.utils.GuiUtils;
 import com.adlitteram.redit.action.OpenArticle;
@@ -37,7 +37,7 @@ import org.slf4j.LoggerFactory;
 public class RecentFilesManager implements ActionListener {
 
    private static final Logger logger = LoggerFactory.getLogger(RecentFilesManager.class);
-   //
+   
    private final AppManager appManager;
    private final ArrayList<String> filenameList;
 

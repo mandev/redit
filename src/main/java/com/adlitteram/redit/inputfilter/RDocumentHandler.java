@@ -33,7 +33,7 @@ import org.xml.sax.helpers.DefaultHandler;
 public class RDocumentHandler extends DefaultHandler {
 
    private static final Logger logger = LoggerFactory.getLogger(RDocumentHandler.class);
-   //
+
    private final StyledDocument document;
    private Style logicalStyle;
    private Style oldLogicalStyle;
@@ -130,7 +130,6 @@ public class RDocumentHandler extends DefaultHandler {
 
    @Override
    public void ignorableWhitespace(char ch[], int start, int length) {
-      //characters(ch,start,length) ;
    }
 
    // ErrorHandler methods

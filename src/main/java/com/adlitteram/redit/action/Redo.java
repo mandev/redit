@@ -32,50 +32,40 @@ import org.slf4j.LoggerFactory;
 
 public class Redo extends XAction {
 
-   private static final Logger logger = LoggerFactory.getLogger(Redo.class);
-   //
-   private final AppManager appManager;
+    private static final Logger logger = LoggerFactory.getLogger(Redo.class);
 
-   public Redo(AppManager appManager) {
-      super("Redo");
-      this.appManager = appManager;
-   }
+    private final AppManager appManager;
 
-   @Override
-   public void actionPerformed(ActionEvent e) {
-      action(appManager.getArticle());
+    public Redo(AppManager appManager) {
+        super("Redo");
+        this.appManager = appManager;
+    }
 
-      appManager.getMainFrame().requestTextFocus();
-      appManager.getActionManager().enableActions();
-   }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        action(appManager.getArticle());
 
-   public static void action(Article article) {
-      logger.info("Redo");
+        appManager.getMainFrame().requestTextFocus();
+        appManager.getActionManager().enableActions();
+    }
 
-      UndoManager undoManager = article.getUndoManager();
-      try {
-         if (undoManager.canRedo()) {
-            undoManager.redo();
-         }
-      }
-      catch (CannotRedoException ex) {
-         logger.warn("", ex);
-      }
-   }
+    public static void action(Article article) {
+        logger.info("Redo");
 
-   @Override
-   public void enable() {
-      setEnabled(appManager.getArticlePane() != null
-              && appManager.getArticlePane().getArticle().getUndoManager().canRedo());
+        UndoManager undoManager = article.getUndoManager();
+        try {
+            if (undoManager.canRedo()) {
+                undoManager.redo();
+            }
+        }
+        catch (CannotRedoException ex) {
+            logger.warn("", ex);
+        }
+    }
 
-//        if (appManager.getArticlePane() != null &&
-//            appManager.getArticlePane().getArticle().getUndoManager().canRedo()) {
-//            setEnabled(true);
-//            putValue(Action.NAME, appManager.getArticlePane().getArticle().getUndoManager().getRedoPresentationName());
-//        }
-//        else {
-//            setEnabled(false);
-//            putValue(Action.NAME, getText());
-//        }
-   }
+    @Override
+    public void enable() {
+        setEnabled(appManager.getArticlePane() != null
+                && appManager.getArticlePane().getArticle().getUndoManager().canRedo());
+    }
 }

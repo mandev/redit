@@ -35,8 +35,9 @@ import org.slf4j.LoggerFactory;
 public class ArticleFileListData implements Transferable, ClipboardOwner {
 
    private static final Logger logger = LoggerFactory.getLogger(ArticleFileListData.class);
+
    private static final DataFlavor FILE_LIST_FLAVOR = DataFlavor.javaFileListFlavor;
-   //
+
    private final ArrayList<File> fileList;
 
    private ArticleFileListData(ArrayList<File> fileList) {

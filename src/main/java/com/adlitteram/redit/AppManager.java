@@ -21,7 +21,7 @@ package com.adlitteram.redit;
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
  */
-import com.adlitteram.jasmin.XProp;
+import com.adlitteram.jasmin.property.XProp;
 import com.adlitteram.jasmin.action.ActionManager;
 import com.adlitteram.redit.gui.ArticlePane;
 import com.adlitteram.redit.gui.MainFrame;
@@ -29,7 +29,7 @@ import org.apache.commons.lang3.time.FastDateFormat;
 
 public class AppManager {
 
-   public static final String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
+   public static final String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";   
    public static final FastDateFormat DATE_FORMATTER = FastDateFormat.getInstance(DATE_FORMAT);
 
    private final ActionManager actionManager;    // Controller

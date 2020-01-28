@@ -35,7 +35,7 @@ import org.xml.sax.XMLReader;
 public class XmlGuiReader {
 
    private static final Logger logger = LoggerFactory.getLogger(XmlGuiReader.class);
-   //
+
    private final MainFrame mainFrame;
 
    public XmlGuiReader(MainFrame mainFrame) {

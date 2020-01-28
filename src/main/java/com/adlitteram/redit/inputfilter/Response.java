@@ -23,19 +23,12 @@ package com.adlitteram.redit.inputfilter;
  */
 public class Response {
 
-//    private int status;
    private int error;
    private String comment;
 
    public Response() {
    }
 
-//    public int getStatus() {
-//        return status;
-//    }
-//    public void setStatus(int status) {
-//        this.status = status;
-//    }
    public int getError() {
       return error;
    }

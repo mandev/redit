@@ -32,7 +32,7 @@ import org.xml.sax.helpers.DefaultHandler;
 public class XPropertiesHandler extends DefaultHandler {
 
    private static final Logger logger = LoggerFactory.getLogger(XPropertiesHandler.class);
-   //
+
    private final Properties props;
 
    public XPropertiesHandler(Properties props) {

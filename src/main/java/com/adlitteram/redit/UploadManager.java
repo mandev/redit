@@ -21,7 +21,7 @@ package com.adlitteram.redit;
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
  */
-import com.adlitteram.jasmin.XProp;
+import com.adlitteram.jasmin.property.XProp;
 import com.adlitteram.jasmin.io.ProgressListener;
 import com.adlitteram.redit.inputfilter.Response;
 import com.adlitteram.redit.inputfilter.ResponseReader;

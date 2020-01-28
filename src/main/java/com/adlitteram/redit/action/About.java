@@ -39,12 +39,12 @@ import org.slf4j.LoggerFactory;
 public class About extends XAction {
 
    private static final Logger logger = LoggerFactory.getLogger(About.class);
-   //
+   
    private static final String MESSAGE = "<html><center>"
            + "<h3><strong>" + Version.getNAME() + " v" + Version.getVERSION() + "</strong></h3>"
            + "<h5>" + Version.getCOPYRIGHT() + " - " + Version.getDATE() + "</h5>"
            + "</html>";
-   //
+   
    private final AppManager appManager;
 
    public About(AppManager appManager) {

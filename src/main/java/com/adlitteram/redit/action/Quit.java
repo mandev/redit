@@ -27,7 +27,7 @@ import com.adlitteram.redit.Main;
 import com.adlitteram.jasmin.Message;
 import com.adlitteram.jasmin.action.XAction;
 import org.slf4j.Logger;
-import com.adlitteram.jasmin.XProp;
+import com.adlitteram.jasmin.property.XProp;
 import com.adlitteram.redit.Version;
 import java.awt.event.ActionEvent;
 import org.slf4j.LoggerFactory;

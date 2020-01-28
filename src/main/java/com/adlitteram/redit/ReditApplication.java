@@ -23,7 +23,7 @@ package com.adlitteram.redit;
  */
 import com.adlitteram.jasmin.Application;
 import com.adlitteram.jasmin.Message;
-import com.adlitteram.jasmin.XProp;
+import com.adlitteram.jasmin.property.XProp;
 import com.adlitteram.jasmin.log.XLog;
 import com.adlitteram.jasmin.utils.GuiUtils;
 import com.adlitteram.jasmin.utils.PlatformUtils;
@@ -110,7 +110,7 @@ public class ReditApplication extends Application {
    public void start() {
 
       SwingUtilities.invokeLater(() -> {
-         appManager = new AppManager();                   // Model
+         appManager = new AppManager();                  // Model
          logger.info("Launching MainFrame");
          mainFrame = new MainFrame(appManager);          // View
          appManager.addArticle(new Article(appManager));

@@ -1,8 +1,3 @@
-/*
- * IptcDialog.java
- *
- * Created on 9 avril 2005, 20:39
- */
 package com.adlitteram.redit.gui.dialog;
 
 /*-
@@ -70,7 +65,7 @@ public class ArticlePictureDialog extends JDialog {
    private JPanel buildButtonPanel() {
       JButton okButton = new JButton(Message.get("Ok"));
       getRootPane().setDefaultButton(okButton);
-      okButton.addActionListener((ActionEvent e) -> okPressed());
+      okButton.addActionListener(e -> okPressed());
 
       JButton cancelButton = new JButton(Message.get("Cancel"));
       cancelButton.addActionListener(e -> cancelPressed());

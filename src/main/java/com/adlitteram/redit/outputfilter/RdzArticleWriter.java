@@ -38,7 +38,6 @@ import org.znerd.xmlenc.XMLOutputter;
 public class RdzArticleWriter extends ArticleWriter {
 
    private static final Logger logger = LoggerFactory.getLogger(RdzArticleWriter.class);
-   //
 
    public RdzArticleWriter(Article article) {
       super(article);
@@ -75,8 +74,6 @@ public class RdzArticleWriter extends ArticleWriter {
 
    protected XMLOutputter getXmlWriter() throws IOException {
       XMLOutputter xmlWriter = new XMLOutputter(new CharArrayWriter(), encoding);
-      //xmlWriter.setLineBreak(LineBreak.UNIX);
-      //xmlWriter.setIndentation("  ");
       xmlWriter.declaration();
       return xmlWriter;
    }

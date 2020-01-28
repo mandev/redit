@@ -33,7 +33,6 @@ public class ResponseUserHandler extends ResponseHandler {
    private Group group;
    private Column column;
    private IptcField iptcField;
-   //
    private boolean isInArticleColumns = false;
 
    public ResponseUserHandler() {

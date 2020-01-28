@@ -31,9 +31,8 @@ import org.slf4j.LoggerFactory;
 public class Search extends XAction {
 
    private static final Logger logger = LoggerFactory.getLogger(Search.class);
-   //
+
    public static SearchDialog searchDialog;
-   //
    private final AppManager appManager;
 
    public Search(AppManager appManager) {

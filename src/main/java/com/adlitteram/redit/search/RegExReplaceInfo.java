@@ -22,35 +22,7 @@ package com.adlitteram.redit.search;
  * #L%
  */
 
- /*
- * 02/19/2006
- *
- * RegExReplaceInfo.java - Information about a regex text match.
- * Copyright (C) 2006 Robert Futrell
- * robert_futrell at users.sourceforge.net
- * http://fifesoft.com/rsyntaxtextarea
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA.
- */
-/**
- * Information on how to implement a regular expression "replace" operation.
- *
- * @author Robert Futrell
- * @version 1.0
- */
-class RegExReplaceInfo {
+public class RegExReplaceInfo {
 
    private final String matchedText;
    private final int startIndex;

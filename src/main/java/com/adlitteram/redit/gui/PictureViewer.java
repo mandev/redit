@@ -24,10 +24,10 @@ package com.adlitteram.redit.gui;
 import com.adlitteram.jasmin.Message;
 import com.adlitteram.jasmin.action.ActionManager;
 import com.adlitteram.jasmin.gui.explorer.ImageFile;
-import com.adlitteram.imagetool.ImageInfo;
-import com.adlitteram.imagetool.ImageUtils;
-import com.adlitteram.imagetool.Imager;
-import com.adlitteram.imagetool.ReadParam;
+import com.adlitteram.jasmin.image.ImageInfo;
+import com.adlitteram.jasmin.image.ImageUtils;
+import com.adlitteram.jasmin.image.ImageTool;
+import com.adlitteram.jasmin.image.ReadParam;
 import com.adlitteram.jasmin.utils.GuiUtils;
 import com.adlitteram.redit.Article;
 import com.adlitteram.redit.Main;
@@ -35,7 +35,11 @@ import com.adlitteram.redit.gui.dialog.ArticlePictureDialog;
 import com.adlitteram.redit.gui.dialog.IptcDialog;
 import cz.autel.dmi.HIGConstraints;
 import cz.autel.dmi.HIGLayout;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
@@ -50,7 +54,7 @@ import org.slf4j.LoggerFactory;
 public class PictureViewer extends JFrame {
 
    private static final Logger logger = LoggerFactory.getLogger(PictureViewer.class);
-   //
+
    private ActionManager actionManager;
    private final Article article;
    private final ArrayList<ImageFile> fileList;
@@ -106,6 +110,7 @@ public class PictureViewer extends JFrame {
    private void initActions() {
       actionManager = new ActionManager();
 
+      
       AbstractAction action = new AbstractAction("CloseViewer") {
          @Override
          public void actionPerformed(ActionEvent e) {
@@ -182,7 +187,6 @@ public class PictureViewer extends JFrame {
 
       JButton closeButton = new JButton(actionManager.getAction("CloseViewer"));
       closeButton.setText(Message.get("PictureViewer.CloseViewer"));
-      //getRootPane().setDefaultButton(closeButton);
 
       int w[] = {5, -12, 5, 0, 25, -8, 5, -6, 25, 0, 5, 0, 5, 0, 5};
       int h[] = {2, 0, 2};
@@ -264,10 +268,10 @@ public class PictureViewer extends JFrame {
       GuiUtils.setCursorOnWait(this, true);
       BufferedImage img = null;
       File file = fileList.get(index).getFile();
-      ImageInfo info = Imager.readImageInfo(file);
+      ImageInfo info = ImageTool.readImageInfo(file);
       if (info != null) {
          int sampling = Math.max(info.getWidth() / w, info.getHeight() / h) + 1;
-         img = Imager.readImage(file, new ReadParam(sampling));
+         img = ImageTool.readImage(file, new ReadParam(sampling));
          if (img != null && (sampling > 1 || img.getWidth() > w || img.getHeight() > h)) {
             img = ImageUtils.getScaledRGBImage(img, w, h, true);
          }
@@ -276,7 +280,7 @@ public class PictureViewer extends JFrame {
       return img;
    }
 
-   class ImagePanel extends JPanel {
+   private class ImagePanel extends JPanel {
 
       @Override
       protected void paintComponent(Graphics g) {

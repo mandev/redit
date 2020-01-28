@@ -27,7 +27,7 @@ import com.adlitteram.redit.Main;
 import com.adlitteram.jasmin.Message;
 import com.adlitteram.jasmin.action.XAction;
 import org.slf4j.Logger;
-import com.adlitteram.jasmin.XProp;
+import com.adlitteram.jasmin.property.XProp;
 import com.adlitteram.jasmin.gui.explorer.ExplorerPane;
 import com.adlitteram.jasmin.gui.explorer.ImageFile;
 import com.adlitteram.jasmin.gui.widget.FileChooser;
@@ -42,7 +42,7 @@ import org.slf4j.LoggerFactory;
 public class AddPicture extends XAction {
 
    private static final Logger logger = LoggerFactory.getLogger(AddPicture.class);
-   //
+
    private final AppManager appManager;
 
    public AddPicture(AppManager appManager) {

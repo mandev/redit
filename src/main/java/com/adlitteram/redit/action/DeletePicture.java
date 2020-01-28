@@ -21,20 +21,20 @@ package com.adlitteram.redit.action;
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
  */
-import com.adlitteram.redit.AppManager;
-import com.adlitteram.redit.Article;
 import com.adlitteram.jasmin.action.XAction;
 import com.adlitteram.jasmin.gui.explorer.ExplorerModel;
 import com.adlitteram.jasmin.gui.explorer.ExplorerPane;
-import org.slf4j.Logger;
+import com.adlitteram.redit.AppManager;
+import com.adlitteram.redit.Article;
 import com.adlitteram.redit.gui.ArticlePane;
 import java.awt.event.ActionEvent;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class DeletePicture extends XAction {
 
    private static final Logger logger = LoggerFactory.getLogger(DeletePicture.class);
-   //
+   
    private final AppManager appManager;
 
    public DeletePicture(AppManager appManager) {
@@ -47,19 +47,6 @@ public class DeletePicture extends XAction {
       action(appManager.getArticle());
    }
 
-   public static void action(Article article) {
-      logger.info("DeletePicture");
-
-      ArticlePane articlePane = article.getArticlePane();
-      if (articlePane != null) {
-         ExplorerModel model = article.getExplorerModel();
-         ExplorerPane pictureList = articlePane.getExplorerPane();
-         int[] indices = pictureList.getSelectedIndices();
-         for (int i = indices.length - 1; i >= 0; i--) {
-            model.remove(indices[i]);
-         }
-      }
-   }
 
    @Override
    public void enable() {
@@ -67,4 +54,20 @@ public class DeletePicture extends XAction {
               && appManager.getArticlePane().getExplorerPane().getSelectedIndices().length > 0
               && appManager.getArticlePane().isPicturePaneVisible());
    }
+
+   public static void action(Article article) {
+       logger.info("DeletePicture");
+       
+       ArticlePane articlePane = article.getArticlePane();
+       if (articlePane != null) {
+           ExplorerModel model = article.getExplorerModel();
+           ExplorerPane pictureList = articlePane.getExplorerPane();
+           int[] indices = pictureList.getSelectedIndices();
+           for (int i = indices.length - 1; i >= 0; i--) {
+               model.remove(indices[i]);
+           }
+       }
+   }
+
+
 }

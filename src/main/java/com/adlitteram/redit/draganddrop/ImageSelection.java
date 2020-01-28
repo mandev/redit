@@ -30,67 +30,49 @@ import javax.swing.JComponent;
 
 public class ImageSelection implements Transferable, ClipboardOwner {
 
-   private static final DataFlavor flavors[] = {DataFlavor.imageFlavor};
-   private final Image image;
+    private static final DataFlavor[] FLAVORS = {DataFlavor.imageFlavor};
+    private final Image image;
 
-   public ImageSelection(Image img) {
-      image = img;
-   }
+    public ImageSelection(Image img) {
+        image = img;
+    }
 
-   @Override
-   public Object getTransferData(DataFlavor flavor) {
-      return (flavors[0].equals(flavor)) ? image : null;
-   }
+    @Override
+    public Object getTransferData(DataFlavor flavor) {
+        return (FLAVORS[0].equals(flavor)) ? image : null;
+    }
 
-   @Override
-   public DataFlavor[] getTransferDataFlavors() {
-      return flavors;
-   }
+    @Override
+    public DataFlavor[] getTransferDataFlavors() {
+        return FLAVORS;
+    }
 
-   @Override
-   public boolean isDataFlavorSupported(DataFlavor flavor) {
-      return flavors[0].equals(flavor);
-   }
+    @Override
+    public boolean isDataFlavorSupported(DataFlavor flavor) {
+        return FLAVORS[0].equals(flavor);
+    }
 
-   @Override
-   public void lostOwnership(Clipboard clipboard, Transferable contents) {
-   }
+    @Override
+    public void lostOwnership(Clipboard clipboard, Transferable contents) {
+    }
 
-   // Export Data from the component
-   public static Transferable createTransferable(JComponent comp) {
-//        ImagePanel imagePanel = (ImagePanel) comp ;
-//        AppManager imgManager = imagePanel.getImageManager() ;
-//        Image image = imgManager.getImage() ;
-//        return ( image == null ) ? null : new ImageSelection(image) ;
-      return null;
-   }
+    // Export Data from the component
+    public static Transferable createTransferable(JComponent comp) {
+        return null;
+    }
 
-   // Paste Data to the component
-   public static boolean importData(JComponent comp, Transferable t) {
-//        ImagePanel imagePanel = (ImagePanel) comp ;
-//        AppManager imgManager = imagePanel.getImageManager() ;
-//
-//        System.err.println("ImageSelection.importData");
-//
-//        if( t.isDataFlavorSupported(flavors[0]) ) {
-//            try {
-//                Image image = (Image) t.getTransferData(flavors[0]) ;
-//                //if ( image != null ) imgManager.pasteImage(image) ;
-//                return true;
-//            } catch (Exception e) {
-//                System.err.println(e) ;
-//            }
-//        }
-      return false;
-   }
+    // Paste Data to the component
+    public static boolean importData(JComponent comp, Transferable t) {
+        return false;
+    }
 
-   // Return the import capabilitiy
-   public static boolean canImport(JComponent comp, DataFlavor flav[]) {
-      for (int i = 0, n = flav.length; i < n; i++) {
-         if (flavors[0].equals(flav[i])) {
-            return true;
-         }
-      }
-      return false;
-   }
+    // Return the import capabilitiy
+    public static boolean canImport(JComponent comp, DataFlavor flav[]) {
+        for (int i = 0, n = flav.length; i < n; i++) {
+            if (FLAVORS[0].equals(flav[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
